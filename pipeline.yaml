@@ -1,0 +1,468 @@
+# ============================================================
+# ASVA AI — Content SEO Pipeline Registry
+# Single source of truth for all blog posts + pipeline status
+# ============================================================
+# Usage: Referenced by all /seo-* commands
+# Update: Status fields are updated by each command after completion
+# ============================================================
+
+version: 1
+project: asva-ai-blog
+last_updated: "2026-03-14"
+
+sanity:
+  project_id: en9d2pb2
+  dataset: production
+  document_type: blogPost
+
+# ============================================================
+# Posts — ordered by recommended publish order (lowest KD first)
+# ============================================================
+
+posts:
+
+  # ---- PUBLISH ORDER 1 — KD 2 (Quick Win) ----
+  - id: "2.3"
+    title: "How to Audit Your Brand's Visibility on LLMs (Free DIY Guide)"
+    slug: "audit-brand-visibility-llms"
+    feature_page: "/features/citation-monitoring"
+    pillar: "ai-visibility-tracking"
+    primary_keyword: "how to audit brand visibility on llms"
+    secondary_keywords:
+      - "llm brand audit"
+      - "llms.txt brand visibility"
+      - "brand visibility audit ai"
+    keyword_volume: 480
+    keyword_difficulty: 2
+    word_count_target: 1600
+    content_angle: "Practical free DIY tutorial — manual LLM audit walkthrough with free template"
+    schema_type: "HowTo"
+    internal_links:
+      - anchor: "Monitor your citation sources"
+        url: "/features/citation-monitoring"
+      - anchor: "Automate this audit"
+        url: "/features/brand-visibility-tracker"
+      - anchor: "Best monitoring platforms"
+        url: "/blog/best-ai-search-monitoring-platforms-2026"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 1
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 2 — KD 12 ----
+  - id: "1.3"
+    title: "Why Brands Are Invisible in AI Search — And How to Fix It"
+    slug: "brands-invisible-ai-search-how-to-fix"
+    feature_page: "/features/brand-visibility-tracker"
+    pillar: "ai-visibility-tracking"
+    primary_keyword: "why you should monitor brand mentions in ai search results"
+    secondary_keywords:
+      - "brand invisible ai search"
+      - "ai search visibility gap"
+      - "brand not appearing in ai answers"
+    keyword_volume: 1900
+    keyword_difficulty: 12
+    word_count_target: 1550
+    content_angle: "Problem/solution narrative — uncomfortable truth + structural gaps + fix"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "See where your brand stands"
+        url: "/features/brand-visibility-tracker"
+      - anchor: "How to track brand mentions"
+        url: "/blog/how-to-track-brand-mentions-ai-search"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 2
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 3 — KD 13 ----
+  - id: "3.3"
+    title: "What Is an AI Visibility Score — And How Is It Calculated?"
+    slug: "what-is-ai-visibility-score"
+    feature_page: "/features/ai-search-tracking"
+    pillar: "ai-visibility-tracking"
+    primary_keyword: "ai visibility score"
+    secondary_keywords:
+      - "ai search visibility metric"
+      - "brand visibility score ai"
+      - "how to measure ai visibility"
+    keyword_volume: 1300
+    keyword_difficulty: 13
+    word_count_target: 1350
+    content_angle: "Definition/explainer — define concept, calculation methodology, interpretation"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "AI Search Tracking dashboard"
+        url: "/features/ai-search-tracking"
+      - anchor: "Brand Visibility Tracker"
+        url: "/features/brand-visibility-tracker"
+      - anchor: "Why use AI monitoring tools"
+        url: "/blog/why-use-ai-search-monitoring-tools"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 3
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 4 — KD 15 ----
+  - id: "4.3"
+    title: "The AI SEO Agency Guide: What to Look for When Hiring an Agency That Does AI Search"
+    slug: "ai-seo-agency-guide"
+    feature_page: "/agencies"
+    pillar: "agency-enterprise"
+    primary_keyword: "ai seo agency"
+    secondary_keywords:
+      - "hire ai search agency"
+      - "aeo agency"
+      - "best ai seo agency"
+    keyword_volume: 1300
+    keyword_difficulty: 15
+    word_count_target: 1600
+    content_angle: "Buyer's guide — what to ask, red flags, how to evaluate capability"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "Find ASVA AI-powered agency partners"
+        url: "/agencies"
+      - anchor: "Start with a free audit"
+        url: "/get-audit"
+      - anchor: "How agencies add AEO"
+        url: "/blog/agencies-add-aeo-service-offering"
+      - anchor: "Brand Visibility Tracker"
+        url: "/features/brand-visibility-tracker"
+    publish_order: 4
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 5 — KD 17 ----
+  - id: "1.1"
+    title: "What Strategies Actually Improve Brand Visibility in AI Search Engines?"
+    slug: "strategies-improve-brand-visibility-ai-search"
+    feature_page: "/features/brand-visibility-tracker"
+    pillar: "ai-visibility-tracking"
+    primary_keyword: "what strategies improve brand visibility in ai search engines"
+    secondary_keywords:
+      - "improve brand visibility ai"
+      - "ai search brand strategy"
+      - "brand visibility ai tools"
+    keyword_volume: 9900
+    keyword_difficulty: 17
+    word_count_target: 2000
+    content_angle: "Tactical listicle/guide — entity consistency, citations, PDP quality, ITC MasterChef example"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "Track your brand's AI visibility"
+        url: "/features/brand-visibility-tracker"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 5
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 6 — KD 18 ----
+  - id: "2.2"
+    title: "Best AI Search Monitoring Platforms Compared (2026)"
+    slug: "best-ai-search-monitoring-platforms-2026"
+    feature_page: "/features/citation-monitoring"
+    pillar: "competitive-intelligence"
+    primary_keyword: "best ai search monitoring platforms"
+    secondary_keywords:
+      - "ai search monitoring tools"
+      - "track ai visibility"
+      - "ai brand monitoring software"
+    keyword_volume: 1000
+    keyword_difficulty: 18
+    word_count_target: 1800
+    content_angle: "Honest comparison/roundup — ASVA included but not only option"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "ASVA AI citation monitoring"
+        url: "/features/citation-monitoring"
+      - anchor: "AI Search Tracking"
+        url: "/features/ai-search-tracking"
+      - anchor: "Pricing"
+        url: "/pricing"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 6
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 7 — KD 19 ----
+  - id: "1.2"
+    title: "How to Track Brand Mentions in AI Search (Step-by-Step Guide)"
+    slug: "how-to-track-brand-mentions-ai-search"
+    feature_page: "/features/brand-visibility-tracker"
+    pillar: "ai-visibility-tracking"
+    primary_keyword: "how to track brand mentions in ai search"
+    secondary_keywords:
+      - "track brand mentions ai"
+      - "brand monitoring ai search"
+      - "brand mention frequency ai"
+    keyword_volume: 4400
+    keyword_difficulty: 19
+    word_count_target: 1650
+    content_angle: "How-to process guide — manual method → automated tracking as scalable solution"
+    schema_type: "HowTo"
+    internal_links:
+      - anchor: "Automate brand mention tracking"
+        url: "/features/brand-visibility-tracker"
+      - anchor: "Full AI visibility dashboard"
+        url: "/features/ai-search-tracking"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 7
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 8 — KD 20 ----
+  - id: "2.1"
+    title: "How AI Search Citation Sources Work — And Why They Determine Who Gets Recommended"
+    slug: "how-ai-search-citation-sources-work"
+    feature_page: "/features/citation-monitoring"
+    pillar: "aeo-fundamentals"
+    primary_keyword: "ai search citation sources"
+    secondary_keywords:
+      - "how ai chooses sources"
+      - "ai citation monitoring"
+      - "what sources does chatgpt cite"
+    keyword_volume: 2400
+    keyword_difficulty: 20
+    word_count_target: 1900
+    content_angle: "Deep explainer — what are citation sources, how LLMs weight them, why it predicts recommendations"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "Monitor your citation sources"
+        url: "/features/citation-monitoring"
+      - anchor: "Brand Visibility Tracker"
+        url: "/features/brand-visibility-tracker"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 8
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 9 — KD 20 ----
+  - id: "4.1"
+    title: "How Agencies Can Add AEO (Answer Engine Optimisation) to Their Service Stack"
+    slug: "agencies-add-aeo-service-offering"
+    feature_page: "/agencies"
+    pillar: "agency-enterprise"
+    primary_keyword: "aeo for agencies"
+    secondary_keywords:
+      - "answer engine optimisation agency"
+      - "add aeo service"
+      - "ai seo for agencies"
+    keyword_volume: 2200
+    keyword_difficulty: 20
+    word_count_target: 2000
+    content_angle: "Strategic/practical guide — how to productise AEO, client conversation, deliverables, pricing"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "ASVA AI for agencies"
+        url: "/agencies"
+      - anchor: "AI Search Tracking"
+        url: "/features/ai-search-tracking"
+      - anchor: "Pricing"
+        url: "/pricing"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 9
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 10 — KD 22 ----
+  - id: "3.1"
+    title: "Why You Need AI Search Monitoring Tools (Not Just Google Analytics)"
+    slug: "why-use-ai-search-monitoring-tools"
+    feature_page: "/features/ai-search-tracking"
+    pillar: "ai-visibility-tracking"
+    primary_keyword: "why use ai search monitoring tools"
+    secondary_keywords:
+      - "ai search monitoring"
+      - "ai visibility tracking"
+      - "ai analytics tools"
+    keyword_volume: 4400
+    keyword_difficulty: 22
+    word_count_target: 1750
+    content_angle: "Paradigm-shift post — GA/GSC blind spot + why dedicated AI monitoring is different"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "AI Search Tracking"
+        url: "/features/ai-search-tracking"
+      - anchor: "Brand Visibility Tracker"
+        url: "/features/brand-visibility-tracker"
+      - anchor: "AI competitive analysis"
+        url: "/blog/ai-search-competitive-analysis"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 10
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 11 — KD 26 ----
+  - id: "4.2"
+    title: "Agency Rank Tracking Across AI Platforms: A Guide for SEO Teams Managing Multiple Clients"
+    slug: "agency-rank-tracking-ai-platforms"
+    feature_page: "/agencies"
+    pillar: "agency-enterprise"
+    primary_keyword: "agency rank tracking"
+    secondary_keywords:
+      - "agency ai rank tracking"
+      - "track client ai visibility"
+      - "white label ai search tracking"
+    keyword_volume: 1900
+    keyword_difficulty: 26
+    word_count_target: 1800
+    content_angle: "Operational guide — manage AI tracking across 10-20 clients, reporting, anomaly detection"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "ASVA AI for agencies — multi-client tracking"
+        url: "/agencies"
+      - anchor: "AI Search Tracking"
+        url: "/features/ai-search-tracking"
+      - anchor: "How agencies add AEO"
+        url: "/blog/agencies-add-aeo-service-offering"
+      - anchor: "Pricing"
+        url: "/pricing"
+    publish_order: 11
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- PUBLISH ORDER 12 — KD 33 (Hardest) ----
+  - id: "3.2"
+    title: "AI Search Competitive Analysis: How to See What Your Competitors Are Winning in AI Answers"
+    slug: "ai-search-competitive-analysis"
+    feature_page: "/features/ai-search-tracking"
+    pillar: "competitive-intelligence"
+    primary_keyword: "ai search competitive analysis tools"
+    secondary_keywords:
+      - "ai competitive analysis"
+      - "competitive ai visibility"
+      - "track competitor ai mentions"
+    keyword_volume: 6600
+    keyword_difficulty: 33
+    word_count_target: 2200
+    content_angle: "Tactical guide — methodology, benchmarking framework, ITC vs McCain 67% SOV example"
+    schema_type: "BlogPosting"
+    internal_links:
+      - anchor: "Run competitive AI search analysis"
+        url: "/features/ai-search-tracking"
+      - anchor: "Get a free audit"
+        url: "/get-audit"
+    publish_order: 12
+    status:
+      images: done
+      figma: done
+      research: pending
+      brief: pending
+      content: pending
+      seo_review: pending
+      sanity_draft: pending
+      published: pending
+
+  # ---- ALREADY PUBLISHED — Playbook ----
+  - id: "0.1"
+    title: "How We Automated Organic Growth Using Claude + 4 Tools — March 2026 Stack"
+    slug: "claude-seo-automation-stack-march-2026"
+    feature_page: null
+    pillar: "aeo-fundamentals"
+    primary_keyword: "claude seo automation stack"
+    secondary_keywords:
+      - "claude seo tools"
+      - "geo automation stack"
+      - "seo automation 2026"
+    keyword_volume: null
+    keyword_difficulty: null
+    word_count_target: 2500
+    content_angle: "Stack breakdown / playbook — the exact 5-tool stack we use"
+    schema_type: "BlogPosting"
+    internal_links: []
+    publish_order: 0
+    status:
+      images: done
+      figma: done
+      research: done
+      brief: done
+      content: done
+      seo_review: done
+      sanity_draft: done
+      published: done

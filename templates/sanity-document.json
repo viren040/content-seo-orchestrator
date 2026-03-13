@@ -1,0 +1,68 @@
+{
+  "_type": "blogPost",
+  "title": "{{TITLE}}",
+  "slug": {
+    "_type": "slug",
+    "current": "{{SLUG}}"
+  },
+  "author": "Asva AI Team",
+  "publishedAt": "{{YYYY-MM-DDTHH:MM:SS.000Z}}",
+  "updatedAt": "{{YYYY-MM-DDTHH:MM:SS.000Z}}",
+  "excerpt": "{{EXCERPT — 150-200 chars, max 250}}",
+  "content": "{{FULL_MARKDOWN_CONTENT}}",
+  "pillar": "{{PILLAR_SLUG}}",
+  "cluster": "{{CLUSTER_SLUG}}",
+  "tags": [
+    "{{tag1}}",
+    "{{tag2}}",
+    "{{tag3}}"
+  ],
+  "primaryKeyword": "{{PRIMARY_KEYWORD}}",
+  "metaTitle": "{{META_TITLE — max 70 chars}}",
+  "metaDescription": "{{META_DESCRIPTION — max 160 chars}}",
+  "schemaType": "BlogPosting",
+  "canonicalUrl": "",
+  "ctaUrl": "/demo",
+  "status": "Draft",
+  "hidden": false,
+  "faqs": [
+    {
+      "_type": "faq",
+      "_key": "faq1",
+      "question": "{{FAQ_QUESTION_1}}",
+      "answer": "{{FAQ_ANSWER_1}}"
+    },
+    {
+      "_type": "faq",
+      "_key": "faq2",
+      "question": "{{FAQ_QUESTION_2}}",
+      "answer": "{{FAQ_ANSWER_2}}"
+    },
+    {
+      "_type": "faq",
+      "_key": "faq3",
+      "question": "{{FAQ_QUESTION_3}}",
+      "answer": "{{FAQ_ANSWER_3}}"
+    }
+  ],
+  "internalLinks": [
+    {
+      "_type": "internalLink",
+      "_key": "link1",
+      "anchor": "{{ANCHOR_TEXT_1}}",
+      "url": "{{URL_1}}"
+    },
+    {
+      "_type": "internalLink",
+      "_key": "link2",
+      "anchor": "{{ANCHOR_TEXT_2}}",
+      "url": "{{URL_2}}"
+    },
+    {
+      "_type": "internalLink",
+      "_key": "link3",
+      "anchor": "{{ANCHOR_TEXT_3}}",
+      "url": "{{URL_3}}"
+    }
+  ]
+}
