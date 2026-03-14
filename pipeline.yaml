@@ -8,7 +8,7 @@
 
 version: 1
 project: asva-ai-blog
-last_updated: "2026-03-14"
+last_updated: "2026-03-15"
 
 sanity:
   project_id: en9d2pb2
@@ -50,12 +50,12 @@ posts:
     status:
       images: done
       figma: done
-      research: pending
-      brief: pending
-      content: pending
-      seo_review: pending
-      sanity_draft: pending
-      published: pending
+      research: done
+      brief: done
+      content: done
+      seo_review: done
+      sanity_draft: done
+      published: done
 
   # ---- PUBLISH ORDER 2 — KD 12 ----
   - id: "1.3"
@@ -84,12 +84,12 @@ posts:
     status:
       images: done
       figma: done
-      research: pending
-      brief: pending
-      content: pending
-      seo_review: pending
-      sanity_draft: pending
-      published: pending
+      research: done
+      brief: done
+      content: done
+      seo_review: done
+      sanity_draft: done
+      published: done
 
   # ---- PUBLISH ORDER 3 — KD 13 ----
   - id: "3.3"
@@ -120,12 +120,12 @@ posts:
     status:
       images: done
       figma: done
-      research: pending
-      brief: pending
-      content: pending
-      seo_review: pending
-      sanity_draft: pending
-      published: pending
+      research: done
+      brief: done
+      content: done
+      seo_review: done
+      sanity_draft: done
+      published: done
 
   # ---- PUBLISH ORDER 4 — KD 15 ----
   - id: "4.3"

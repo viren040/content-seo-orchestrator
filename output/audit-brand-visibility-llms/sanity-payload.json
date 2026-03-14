@@ -1,0 +1,86 @@
+{
+  "_id": "blogPost-audit-brand-visibility-llms",
+  "title": "How to Audit Your Brand's Visibility on LLMs (Free DIY Guide)",
+  "slug": {
+    "_type": "slug",
+    "current": "audit-brand-visibility-llms"
+  },
+  "author": "Viren Inaniyan",
+  "publishedAt": "2026-03-14",
+  "updatedAt": "2026-03-14T00:00:00.000Z",
+  "excerpt": "A zero-cost, step-by-step process to measure how often ChatGPT, Perplexity, and Gemini mention your brand \u2014 with a free tracking template and the exact metrics that matter.",
+  "content": "---\n\n## Why Your Google Rankings Tell You Nothing About AI Visibility\n\nYour brand ranks on page one for every target keyword. Your domain authority is strong. None of that guarantees a single mention when someone asks ChatGPT \"what's the best [your category] for [your use case].\"\n\nI run GEO campaigns for B2B companies, and the pattern repeats: brands with strong organic search presence assume they're visible in AI answers. They're not. Knowing how to audit brand visibility on LLMs is now a baseline skill for any marketing team \u2014 yet most haven't done it once. The average brand appears in fewer than 40% of non-branded category queries across ChatGPT, Perplexity, and Gemini. Some appear in under 15%.\n\nGoogle ranks pages. LLMs synthesize information from across the web and decide which brands deserve a mention. The signals are different \u2014 consensus across trusted sources, factual specificity, third-party validation, and original data carry more weight than backlinks or keyword density.\n\nAn LLM brand audit measures three things: how often AI models mention you (frequency), where you appear in the response (position), and how they describe you (sentiment). This guide walks you through doing it manually, for free, in 8-12 hours.\n\n---\n\n## Step 1: Build Your Query Set (The Foundation of Everything)\n\nYour audit is only as good as the questions you test. A poorly chosen query set gives you false confidence or unnecessary panic. Here's how to build one that produces real signal.\n\n### Define 15-25 representative queries\n\nPull from three sources:\n\n1. **Voice of customer.** Review sales call transcripts and support tickets. Capture the actual questions prospects ask when evaluating solutions like yours.\n2. **Search data.** Use Google's People Also Ask boxes and your keyword research. Filter for informational and commercial-investigation intent.\n3. **Category and comparison queries.** Include discovery prompts (\"best [category] for [use case]\"), comparison prompts (\"Brand A vs Brand B\"), and problem-solving prompts (\"how to solve [specific pain point]\").\n\n### Categorize each query\n\nFor every query, tag it with:\n\n- **Type:** Branded (includes your company name) or Non-Branded (category/industry terms only)\n- **Funnel stage:** Awareness, Consideration, or Decision\n- **Intent:** Informational, Commercial, or Transactional\n\nAim for a 50/50 split between branded and non-branded queries. The branded queries confirm whether AI systems know about you at all. The non-branded queries reveal whether you show up when it matters \u2014 when a buyer is evaluating options without knowing your name yet.\n\n### Lock the exact wording\n\nSmall phrasing differences produce different AI responses. Write each query exactly as you'll type it, and don't deviate. Document them in a spreadsheet before you run a single test.\n\n---\n\n## Step 2: Run Queries Across Three Platforms\n\nTest every query on at least three platforms:\n\n| Platform | Why It Matters | What to Watch For |\n|----------|---------------|-------------------|\n| **ChatGPT** | Largest user base; pulls from training data + web browsing | No inline citations by default \u2014 you may need to ask for sources |\n| **Perplexity** | Explicitly cites sources in every response | Easiest platform for identifying which domains feed AI answers |\n| **Gemini / AI Overviews** | Google's AI layer; influences search behavior directly | Some queries don't trigger AI Overviews \u2014 that's a data point too |\n\n### Testing protocol\n\n- Open a **new conversation** for each query. Prior context biases responses.\n- Run each query **at least twice per platform**, separated by a few days. Two runs reveal whether your visibility is consistent or intermittent.\n- **Copy the full response** into your tracking spreadsheet. You'll need exact text for sentiment and position analysis.\n- Do not follow up or \"coach\" the AI into mentioning you. If your brand doesn't appear, that's the data point.\n\n---\n\n## Step 3: Record Results in a Structured Spreadsheet\n\nYour tracking spreadsheet needs these columns:\n\n| Column | What to Enter |\n|--------|--------------|\n| Test Date | Timestamp of the query |\n| Platform | ChatGPT / Perplexity / Gemini |\n| Query | Exact prompt used |\n| Query Type | Branded / Non-Branded |\n| Funnel Stage | Awareness / Consideration / Decision |\n| Brand Mentioned | Yes / No |\n| Position | 1st, 2nd, 3rd, or Not Mentioned |\n| Competitors Mentioned | List every brand that appears |\n| Sentiment | Positive / Neutral / Negative |\n| Sources Cited | Domains referenced in the response |\n| Full Response | Paste the complete AI output |\n| Notes | Anything unusual \u2014 hallucinations, mischaracterizations, etc. |\n\nUse dropdown validation for Platform, Query Type, Funnel Stage, Position, and Sentiment to prevent inconsistencies. Apply conditional formatting: green rows where your brand was mentioned, red where it wasn't. Clusters of red rows often share a funnel stage or query type.\n\n---\n\n## Step 4: Calculate the Three Metrics That Matter\n\nRaw data becomes useful when you convert it into three numbers you can track over time and benchmark against competitors.\n\n### Mention Frequency\n\nThe percentage of responses that include your brand.\n\n**Formula:** (Responses mentioning your brand / Total responses) x 100\n\nCalculate this at three levels:\n- **Overall** across all platforms\n- **Per platform** (ChatGPT vs. Perplexity vs. Gemini)\n- **Per funnel stage** (Awareness vs. Consideration vs. Decision)\n\nIf your overall frequency is 45% but your decision-stage frequency is 12%, you have a conversion-critical gap. Buyers asking \"which tool should I use for X\" aren't finding you.\n\n### Share of Voice (SOV)\n\nYour visibility relative to a specific competitor.\n\n**Formula:** Your mentions / (Your mentions + Competitor mentions) x 100\n\nIf you appeared in 12 of 20 responses and your competitor appeared in 15, your SOV against them is 44%. Calculate this for your top 2-3 competitors separately. A brand with 60% SOV on ChatGPT but 20% on Perplexity needs platform-specific optimization.\n\n### Average Position\n\nWhere you appear when mentioned. Assign numerical values \u2014 1 for first mention, 2 for second, 3 for third or later \u2014 and average across all responses where you appeared. Position correlates with user attention. Being mentioned fifth is categorically different from being mentioned first.\n\n---\n\n## Step 5: Benchmark Against Competitors\n\nRun the same query set for your top 2-3 competitors. Document their results with the same structure. Then build a comparison table:\n\n| Metric | Your Brand | Competitor A | Competitor B |\n|--------|-----------|-------------|-------------|\n| Mention Frequency (Overall) | 42% | 65% | 38% |\n| Mention Frequency (Decision Stage) | 15% | 55% | 22% |\n| SOV vs. Competitor A | 39% | \u2014 | 37% |\n| Avg. Position When Mentioned | 2.8 | 1.4 | 2.5 |\n| Positive Sentiment | 30% | 55% | 20% |\n\nThis table is your executive deliverable. If Competitor A appears in 55% of decision-stage queries while you appear in 15%, that's a quantified problem with a clear mandate for action.\n\n---\n\n## Step 6: Identify Gaps and Prioritize Fixes\n\nYour audit data will point to specific problems. Here's where most brands find their biggest gaps, and what to do about each.\n\n### Gap: Invisible at the decision stage\n\n**Fix:** Create comparison content with specific data. Not \"why we're the best\" \u2014 instead, publish pages like \"[Your Brand] vs [Competitor]: Features, Pricing, and Use Cases for [Specific Audience]\" with real numbers, pricing tables, and named outcomes.\n\n### Gap: Low visibility on a specific platform\n\n**Fix:** Identify which citation sources that platform prefers (Perplexity's inline citations make this easy) and focus content placement on those domains. LinkedIn content heavily influences ChatGPT. Industry publications and review sites influence Perplexity.\n\n### Gap: Neutral or negative sentiment when mentioned\n\n**Fix:** Earn third-party validation. AI systems describe your brand the way the web describes your brand. Original research, case studies with specific metrics (e.g., \"34% improvement across 1,200 accounts\"), and coverage in trusted publications shift how LLMs characterize you.\n\n### Gap: Competitors outperforming across the board\n\n**Fix:** Build topical authority. Create a content cluster \u2014 pillar page plus supporting pages \u2014 around your core category. AI systems cite brands that demonstrate comprehensive expertise, not brands with a single product page.\n\nIf you want to [automate this audit](/features/brand-visibility-tracker) and track changes over time without rebuilding the spreadsheet every quarter, tools exist for that. But the manual process gives you the deepest understanding of what AI systems actually say about you.\n\n---\n\n## What About LLMs.txt Files?\n\nYou'll see discussion about placing an `llms.txt` file on your website \u2014 a plain-text summary to help AI crawlers understand your brand. No major AI platform has confirmed it uses these files. Google explicitly stated it doesn't support them. Testing by SEO researchers found minimal evidence that AI bots fetch `llms.txt` at all.\n\nIf you want to create one, it won't hurt. Place it at `yourdomain.com/llms.txt` with your company summary, core products, and links to your most important pages. But don't prioritize it over the fundamentals \u2014 clear site structure, authoritative content, and third-party citations. Those signals are proven. LLMs.txt is still speculative.\n\n---\n\n## Repeat Every 90 Days\n\nYour first audit creates a baseline. The value compounds when you re-run the same queries quarterly and measure changes. Did mention frequency improve after publishing comparison content? Did position shift after a media placement?\n\n[Monitor your citation sources](/features/citation-monitoring) between audits to catch shifts in real time rather than discovering them 90 days later. For a full breakdown of tools that automate ongoing tracking, see our guide to the [best monitoring platforms](/blog/best-ai-search-monitoring-platforms-2026).\n\n---\n\n## Your Next Move\n\nBuild the query set. Run the tests. Calculate the three metrics. Benchmark against competitors. Fix the biggest gap first. Repeat in 90 days. That's how to audit brand visibility on LLMs \u2014 the manual way.\n\nIf you want to skip the manual work, [get a free audit](/get-audit) \u2014 we'll run your brand through the full process and deliver the same metrics covered here, with competitive benchmarking included.",
+  "pillar": "ai-visibility-tracking",
+  "cluster": "LLM Brand Auditing",
+  "tags": [
+    "llm brand audit",
+    "ai visibility",
+    "brand visibility audit ai",
+    "llms.txt brand visibility",
+    "generative engine optimization",
+    "ai search monitoring",
+    "chatgpt brand mentions"
+  ],
+  "primaryKeyword": "how to audit brand visibility on llms",
+  "metaTitle": "How to Audit Brand Visibility on LLMs \u2014 Free DIY Guide",
+  "metaDescription": "Step-by-step manual audit to measure your brand's visibility on ChatGPT, Perplexity, and Gemini. Free template, real metrics, no paid tools required.",
+  "schemaType": "HowTo",
+  "canonicalUrl": "https://www.asvaai.com/blogs/audit-brand-visibility-llms",
+  "ctaUrl": "https://www.asvaai.com/get-audit",
+  "status": "Draft",
+  "hidden": false,
+  "faqs": [
+    {
+      "_key": "faq1",
+      "question": "How long does a manual LLM brand audit take?",
+      "answer": "Expect 8-12 hours for a first audit with 20 queries across three platforms, including two test runs per query. Subsequent quarterly audits take 4-6 hours since your query set and spreadsheet are already built."
+    },
+    {
+      "_key": "faq2",
+      "question": "Do I need paid tools to audit my brand's AI visibility?",
+      "answer": "No. This guide uses free accounts on ChatGPT, Perplexity, and Gemini plus a spreadsheet. Paid tools add automation and continuous monitoring, but the core audit is entirely free."
+    },
+    {
+      "_key": "faq3",
+      "question": "How many queries should I test in my first audit?",
+      "answer": "Start with 15-25. Fewer than 15 introduces too much noise. More than 50 is difficult to manage manually and unnecessary for a first baseline."
+    },
+    {
+      "_key": "faq4",
+      "question": "Why do I get different results when I run the same query twice?",
+      "answer": "LLMs are probabilistic, not deterministic. They generate responses by predicting likely next words, which introduces variation. Testing each query twice reveals whether your visibility is consistent or intermittent."
+    },
+    {
+      "_key": "faq5",
+      "question": "Does an LLMs.txt file improve my brand's AI visibility?",
+      "answer": "No major AI platform has confirmed it uses LLMs.txt files. Focus on content quality, third-party citations, and structured data first. Treat LLMs.txt as a low-cost experiment, not a core strategy."
+    },
+    {
+      "_key": "faq6",
+      "question": "What's the single most important metric from an LLM audit?",
+      "answer": "Mention frequency on non-branded, decision-stage queries. This measures whether your brand appears when buyers are evaluating solutions without knowing your name \u2014 the metric most directly tied to pipeline impact."
+    }
+  ],
+  "internalLinks": [
+    {
+      "_key": "il1",
+      "anchor": "Monitor your citation sources",
+      "url": "/features/citation-monitoring"
+    },
+    {
+      "_key": "il2",
+      "anchor": "Automate this audit",
+      "url": "/features/brand-visibility-tracker"
+    },
+    {
+      "_key": "il3",
+      "anchor": "Best monitoring platforms",
+      "url": "/blog/best-ai-search-monitoring-platforms-2026"
+    },
+    {
+      "_key": "il4",
+      "anchor": "Get a free audit",
+      "url": "/get-audit"
+    }
+  ]
+}

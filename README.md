@@ -24,6 +24,7 @@ Research → Brief → Write → SEO Score → Publish
 ```
 your-project/
 ├── pipeline.yaml                  # Single source of truth — all posts + status
+├── PUBLISHING-SCHEDULE.md         # 2-week publishing calendar + checklist
 ├── config/
 │   └── seo-settings.yaml          # Brand, CMS, SEO rules
 ├── templates/
@@ -39,6 +40,11 @@ your-project/
 │       ├── seo-review.md          # Step 4 output
 │       ├── sanity-payload.json    # Step 5 output
 │       └── published.json         # Step 6 confirmation
+├── covers/                        # Branded cover images (1200x630 PNGs)
+├── infographics/                  # FigJam diagram exports (SVGs/PNGs)
+├── blog-images/                   # Per-slug social images (OG, twitter, linkedin)
+├── generate_covers.py             # Pillow script to generate branded covers
+├── generate-blog-images.py        # HTML→PNG social image generator
 ├── .claude/commands/              # Claude Code slash commands
 │   ├── seo-status.md
 │   ├── seo-research.md

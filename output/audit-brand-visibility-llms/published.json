@@ -1,0 +1,15 @@
+{
+  "slug": "audit-brand-visibility-llms",
+  "sanity_id": "5b7cfe06-38b6-402b-8e24-5db9bb3aa43a",
+  "published_at": "2026-03-14T12:59:20Z",
+  "status": "published",
+  "url": "https://www.asvaai.com/blogs/audit-brand-visibility-llms",
+  "pipeline_cost": {
+    "research": "$0.08 (sonar-deep-research: 347 input + 9726 output tokens)",
+    "brief": "$0.00 (Claude Code)",
+    "write": "$0.00 (Claude Code)",
+    "seo_review": "$0.00 (Claude Code)",
+    "publish": "$0.00 (Sanity free tier)",
+    "total": "~$0.08"
+  }
+}
