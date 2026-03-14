@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Claude Code
+.claude/settings.local.json
+*.jsonl
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output drafts (optional — uncomment if you want to keep drafts private)
+# output/*/draft.md
+# output/*/sanity-payload.json
