@@ -5,6 +5,28 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-D97757)](https://claude.com/claude-code)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+[![Discussions](https://img.shields.io/badge/Discussions-open-blue)](https://github.com/viren040/content-seo-orchestrator/discussions)
+[![Release](https://img.shields.io/badge/release-v1.0.0-success)](./CHANGELOG.md)
+
+**What's new in v1.0.0 (2026-05-19)**: 4 vertical starter pipelines (B2B SaaS, D2C, local biz, agency) · `/seo-refresh` command · standalone [AEO Scorecard](./docs/AEO-SCORECARD.md) · [feature comparison](./docs/COMPARISON.md) vs Profound/Peec/AI Peekaboo · one-shot `setup.sh` · full [CHANGELOG](./CHANGELOG.md).
+
+## Table of contents
+
+- [Real-world result](#real-world-result)
+- [What this is](#what-this-is)
+- [Why this exists](#why-this-exists)
+- [Commands](#commands)
+- [Cost per post](#cost-per-post)
+- [How this compares to alternatives](#how-this-compares-to-ai-visibility-tools)
+- [Features at a glance](#features-at-a-glance)
+- [Architecture](#architecture)
+- [Quick start](#quick-start)
+- [Starter pipelines by vertical](#starter-pipelines-by-vertical)
+- [Roadmap](#roadmap)
+- [Docs deep-dives](#docs-deep-dives)
+- [FAQ](#faq)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
@@ -12,7 +34,7 @@
 
 One brand we run this pipeline for went from **131 → 964 avg impressions/day** in 12 months — **a 7.3× lift**. Monthly impressions went from **2,142 → 39,240 (18× growth)**. Blog content produced by this orchestrator accounted for **51.8% of all impressions** (126,829 of 244,861) across 119 posts.
 
-Honest caveat: clicks didn't grow proportionally over this window — CTR dropped because new content ranked but the title/meta layer hadn't been tuned yet. That's the *next* iteration of the pipeline (a `/seo-refresh` command for re-optimizing live posts), shipping soon. The pipeline gets you to "ranking"; closing the gap to "clicking" is the obvious next step.
+Honest caveat: clicks didn't grow proportionally over this window — CTR dropped because new content ranked but the title/meta layer hadn't been tuned yet. That gap is now closed by the new [`/seo-refresh` command](./.claude/commands/seo-refresh.md) which re-optimizes live posts using GSC data.
 
 Top posts produced by the pipeline (real, live):
 
@@ -30,15 +52,15 @@ This is the Asva AI blog content (12 posts on AEO / AI visibility) shipped as th
 
 ## What this is
 
-A 6-step content SEO pipeline that runs as Claude Code slash commands, with 4 human gates so you stay in control of the high-judgment calls.
+A 7-step content SEO pipeline that runs as Claude Code slash commands, with 4 human gates so you stay in control of the high-judgment calls.
 
 ```
-Research → Brief → Write → SEO Score → Cover/Diagrams → Publish → IndexNow
-   GATE     GATE    GATE                                  GATE
+Research → Brief → Write → SEO Score → Cover/Diagrams → Publish → IndexNow → Refresh
+   GATE     GATE    GATE                                  GATE                 GATE
 ```
 
-You handle: research angle, brief approval, copy voice, publish decision.
-The pipeline handles: structure, templates, SEO scoring, image generation, CMS publishing, instant indexing.
+You handle: research angle, brief approval, copy voice, publish decision, refresh decision.
+The pipeline handles: structure, templates, SEO scoring, image generation, CMS publishing, instant indexing, CTR optimization.
 
 ## Why this exists
 
@@ -56,12 +78,13 @@ This pipeline keeps the *boring* stuff automated (templates, scoring, CMS payloa
 | Command | What It Does | Human Gate |
 |---------|-------------|------------|
 | `/seo-status` | Pipeline dashboard — all posts, completion %, next task | No |
-| `/seo-research <slug>` | Perplexity Deep Research API (with manual paste fallback) | Yes — review prompt + cost |
-| `/seo-brief <slug>` | Generates content brief from research | Yes — approve brief |
-| `/seo-write <slug>` | Writes full blog post from brief, in brand voice | Yes — review draft |
+| `/seo-research <slug>` | Perplexity Deep Research API (with manual paste fallback) | Yes |
+| `/seo-brief <slug>` | Generates content brief from research | Yes |
+| `/seo-write <slug>` | Writes full blog post from brief, in brand voice | Yes |
 | `/seo-optimize <slug>` | 10-check SEO quality score (0-100) with fix suggestions | No |
-| `/seo-publish <slug>` | Pushes to CMS as draft or live, pings IndexNow | Yes — confirm publish |
-| `/seo-daily` | Daily 15-min workflow — auto-picks next task | Runs the appropriate step |
+| `/seo-publish <slug>` | Pushes to CMS as draft or live, pings IndexNow | Yes |
+| `/seo-refresh <slug>` | Re-optimizes title/meta/intro on live posts using GSC data | Yes |
+| `/seo-daily` | Daily 15-min workflow — auto-picks next task | Runs appropriate step |
 
 ---
 
@@ -95,19 +118,11 @@ This is a content **production** pipeline. It's complementary to AI **tracking**
 |---|---|---|
 | **content-seo-orchestrator** (this) | Production | Produces SEO/AEO-shaped posts and ships them |
 | Profound / Peec / Promptwatch | Tracking | Tracks where you appear in LLM answers |
-| AI Peekaboo | Tracking | Query AI visibility data via MCP |
+| AI Peekaboo | Tracking + MCP/API | Query AI visibility data via MCP |
 | Purple Leaf | Readiness audit | Audits whether your existing pages are AI-ready |
 | Asva AI | Production + tracking + agent visibility | Enterprise platform |
 
-If you want to know whether you show up in ChatGPT, use a tracker. If you want to *make* the posts that get you cited, use this.
-
----
-
-## SEO scoring (10 checks × 10 points = 100)
-
-Keyword placement · keyword density · meta title · meta description · heading structure · content length · internal links · FAQ quality · readability · content quality.
-
-A (90+) = publish-ready · B (80-89) = minor tweaks · C (70-79) = needs work · F (<60) = rewrite.
+If you want to know whether you show up in ChatGPT, use a tracker. If you want to *make* the posts that get you cited, use this. **Full feature matrix**: [docs/COMPARISON.md](./docs/COMPARISON.md).
 
 ---
 
@@ -125,6 +140,11 @@ A (90+) = publish-ready · B (80-89) = minor tweaks · C (70-79) = needs work ·
 - Multi-brand: keep one repo, swap settings per project (`config/seo-settings.example.yaml` ships with the Asva AI reference brand)
 - Real examples enforced; hypotheticals banned
 
+### SEO + AEO scoring
+- 10-check rubric (see [docs/AEO-SCORECARD.md](./docs/AEO-SCORECARD.md))
+- Scores for both SERP rank and LLM citation likelihood
+- Specific fix suggestions when score < 80
+
 ### Images
 - `generate_covers.py` — branded 1200×630 covers via Pillow
 - `generate-blog-images.py` — HTML→PNG via headless Chrome (hero + OG + Twitter + LinkedIn cards per post)
@@ -135,12 +155,18 @@ A (90+) = publish-ready · B (80-89) = minor tweaks · C (70-79) = needs work ·
 - IndexNow ping for Bing/Yandex/Seznam/Naver after live publish
 - Pre-flight checks: SEO score gate, required-field validation, human confirmation
 
+### Refresh / CTR optimization
+- `/seo-refresh` reads GSC data, diagnoses high-impressions/low-CTR pages, proposes title/meta/intro changes
+- Categorizes the problem (title mismatch vs intent drift vs position-floor) so you know what kind of fix to apply
+
 ### Pluggable CMS
 Sanity ships as the reference. Swap in WordPress / Contentful / Strapi / Webflow / Ghost by editing `.claude/commands/seo-publish.md`. Pipeline, briefs, writing, scoring, images stay CMS-agnostic.
 
 ---
 
 ## Architecture
+
+Full deep-dive: [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md).
 
 ```
 your-project/
@@ -151,19 +177,41 @@ your-project/
 │   ├── seo-settings.example.yaml  # Reference brand (Asva AI)
 │   └── api-setup.md
 ├── templates/                     # Research brief, content brief, blog post, CMS payload
-├── output/<slug>/                 # Per-post working dir (research → brief → draft → review → payload)
+├── examples/                      # Starter pipelines by vertical
+│   ├── b2b-saas.pipeline.yaml
+│   ├── d2c-ecommerce.pipeline.yaml
+│   ├── local-business.pipeline.yaml
+│   └── agency.pipeline.yaml
+├── docs/                          # Deep-dive references
+│   ├── ARCHITECTURE.md
+│   ├── COMPARISON.md
+│   ├── AEO-SCORECARD.md
+│   └── FAQ.md
+├── output/<slug>/                 # Per-post working dir
 ├── covers/                        # 1200x630 branded covers
 ├── blog-images/<slug>/            # Per-post social images
 ├── infographics/                  # FigJam diagram exports
 ├── generate_covers.py             # Pillow cover generator
 ├── generate-blog-images.py        # HTML→PNG social card generator
-├── .claude/commands/              # The /seo-* slash commands
-└── README.md
+├── setup.sh                       # One-shot bootstrap
+└── .claude/commands/              # The /seo-* slash commands
 ```
 
 ---
 
-## Quick Start
+## Quick start
+
+**Fastest path** (~3 minutes):
+
+```bash
+git clone https://github.com/viren040/content-seo-orchestrator.git
+cd content-seo-orchestrator
+./setup.sh
+```
+
+The bootstrap script creates a venv, installs deps, copies `.env.example → .env`, and walks you through what to edit next.
+
+**Manual path** (if you'd rather):
 
 ```bash
 # 1. Clone
@@ -177,7 +225,9 @@ cp .env.example .env
 # 3. Edit your brand
 # config/seo-settings.yaml — brand.name, brand.website, sanity.project_id, voice, content_pillars
 
-# 4. Add your posts to pipeline.yaml (see existing entries for shape)
+# 4. Pick a starter pipeline
+cp examples/b2b-saas.pipeline.yaml pipeline.yaml
+# (or d2c-ecommerce / local-business / agency)
 
 # 5. (Optional Python deps for image generation)
 python -m venv .venv && source .venv/bin/activate
@@ -190,28 +240,86 @@ pip install pyyaml pillow requests
 
 ---
 
+## Starter pipelines by vertical
+
+Four pre-built `pipeline.yaml` files in [`examples/`](./examples/), each with 8 starter posts:
+
+| Vertical | File | What it covers |
+|---|---|---|
+| **B2B SaaS** | [`b2b-saas.pipeline.yaml`](./examples/b2b-saas.pipeline.yaml) | Product-led content, comparisons, feature explainers, category education |
+| **D2C ecommerce** | [`d2c-ecommerce.pipeline.yaml`](./examples/d2c-ecommerce.pipeline.yaml) | Buying guides, product comparisons, sizing/usage, AI shopping visibility |
+| **Local business** | [`local-business.pipeline.yaml`](./examples/local-business.pipeline.yaml) | "[Service] in [city]", pricing/timeline FAQs, neighborhood guides |
+| **Agency / consultancy** | [`agency.pipeline.yaml`](./examples/agency.pipeline.yaml) | Methodology, case studies, tool comparisons, founder-voice contrarian |
+
+Copy the closest fit to `./pipeline.yaml`, edit slugs/keywords/internal links, run `/seo-status`.
+
+---
+
 ## Roadmap
 
-Shipped:
+Shipped in v1.0.0:
 - Perplexity Deep Research API
 - Direct Sanity HTTP publishing (with the MCP `_id` workaround)
 - IndexNow ping
 - Cover + social image generators
 - Multi-brand config
+- `/seo-refresh` for CTR re-optimization
+- 4 starter pipelines by vertical
+- AEO Scorecard (10-check rubric)
 
 Confirmed next:
-- `/seo-refresh` command — re-optimize live posts (close the impressions → clicks gap)
 - DataForSEO MCP integration — automated keyword opportunity detection
-- GSC API integration — impressions/CTR tracking inside the pipeline
+- GSC API integration — automatic data fetch for `/seo-refresh`
 - Cannibalization audit script
 - Multi-language content (one source draft → localized variants)
 
 Likely:
-- WordPress / Contentful / Webflow publishers
+- WordPress / Contentful / Webflow publishers (PRs welcome)
 - Rank tracking dashboard
 - AI citation tracking (which LLMs cite the post)
 
 Want one of these sooner? [Open a Discussion](https://github.com/viren040/content-seo-orchestrator/discussions) or send a PR. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+---
+
+## Docs deep-dives
+
+| Doc | What it covers |
+|---|---|
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | How the slash commands chain; why slash-commands instead of a Python orchestrator; how to extend |
+| [docs/COMPARISON.md](./docs/COMPARISON.md) | Feature matrix vs Profound, Peec, Promptwatch, AI Peekaboo, Purple Leaf |
+| [docs/AEO-SCORECARD.md](./docs/AEO-SCORECARD.md) | The 10-check rubric, shareable as a standalone doc |
+| [docs/FAQ.md](./docs/FAQ.md) | Common setup + usage questions |
+| [CHANGELOG.md](./CHANGELOG.md) | Version history |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | How to contribute (especially looking for: WordPress publisher, DataForSEO integration) |
+
+---
+
+## FAQ
+
+A few quick answers; full FAQ in [docs/FAQ.md](./docs/FAQ.md).
+
+**Is it really $0.45/post?** Yes — that's the marginal API cost per post (one Perplexity Deep Research call). You also need a Claude Code subscription, which you presumably have if you're reading this. CMS publishing is free tier. IndexNow is free.
+
+**Do I need to use Claude Code?** Yes — the slash commands run inside Claude Code. Porting to another LLM client would be straightforward (each command is just a markdown prompt), but we don't ship one.
+
+**Do I need Sanity?** No — Sanity is the reference CMS. Edit one file (`.claude/commands/seo-publish.md`) to swap to WordPress / Contentful / Strapi / Webflow / Ghost.
+
+**Can I run this for multiple clients?** Yes — fork the repo per client. Each gets its own `config/seo-settings.yaml` + `pipeline.yaml`. See FAQ for details.
+
+**What if I don't want to pay the Perplexity API cost?** `/seo-research` has a manual paste fallback. Print the prompt → copy into Perplexity web UI → paste response back. Same end result, just slower.
+
+---
+
+## Contributing
+
+PRs welcome. Highest-value contributions right now:
+- WordPress publisher (`.claude/commands/seo-publish.md` port to WP REST API)
+- Contentful / Webflow / Ghost publishers
+- DataForSEO MCP integration in `/seo-research`
+- Localization workflow (one source draft → multi-language)
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines. Open a [Discussion](https://github.com/viren040/content-seo-orchestrator/discussions) before large changes.
 
 ---
 

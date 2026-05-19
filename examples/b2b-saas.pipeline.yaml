@@ -1,0 +1,182 @@
+# ============================================================
+# B2B SaaS — Starter pipeline
+# Copy to ./pipeline.yaml at repo root and edit for your brand.
+# ============================================================
+
+version: 1
+project: "your-saas-blog"
+last_updated: "2026-05-19"
+
+sanity:
+  project_id: "REPLACE_WITH_YOUR_SANITY_ID"
+  dataset: production
+  document_type: blogPost
+
+posts:
+
+  # ---- Quick wins (low KD, branded + product-led) ----
+  - id: "1.1"
+    title: "{{Product}} vs {{Competitor}}: A Founder's Comparison (2026)"
+    slug: "product-vs-competitor"
+    pillar: "competitor-comparisons"
+    primary_keyword: "{{product}} vs {{competitor}}"
+    secondary_keywords:
+      - "{{product}} alternatives"
+      - "best {{category}} for {{use case}}"
+    keyword_volume: 320
+    keyword_difficulty: 8
+    word_count_target: 1800
+    content_angle: "Honest comparison with real pricing, real screenshots, real customer migration stories. Don't trash the competitor."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Our pricing", url: "/pricing" }
+      - { anchor: "How we differ", url: "/why-{{product}}" }
+      - { anchor: "Book a demo", url: "/demo" }
+    publish_order: 1
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  - id: "1.2"
+    title: "How to Choose a {{Category}} Tool in 2026: A Buyer's Checklist"
+    slug: "how-to-choose-category-tool-2026"
+    pillar: "buyer-education"
+    primary_keyword: "how to choose {{category}} tool"
+    secondary_keywords:
+      - "best {{category}} software"
+      - "{{category}} buying guide"
+    keyword_volume: 480
+    keyword_difficulty: 12
+    word_count_target: 2000
+    content_angle: "Checklist format. AEO-shaped (FAQ sub-headings). 8-12 criteria with weights."
+    schema_type: "HowTo"
+    internal_links:
+      - { anchor: "Our {{category}} platform", url: "/" }
+      - { anchor: "Customer case studies", url: "/customers" }
+      - { anchor: "Pricing", url: "/pricing" }
+      - { anchor: "Book a demo", url: "/demo" }
+    publish_order: 2
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Category education (AEO citation bait) ----
+  - id: "2.1"
+    title: "The State of {{Category}} in 2026: 7 Trends Backed by Data"
+    slug: "state-of-category-2026"
+    pillar: "category-education"
+    primary_keyword: "{{category}} trends 2026"
+    secondary_keywords:
+      - "future of {{category}}"
+      - "{{category}} market size"
+    keyword_volume: 720
+    keyword_difficulty: 18
+    word_count_target: 2400
+    content_angle: "Data-led report. Original research + cited industry stats. LLMs cite content like this for category-defining queries."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Our category POV", url: "/why-{{product}}" }
+      - { anchor: "Product overview", url: "/" }
+      - { anchor: "Book a demo", url: "/demo" }
+    publish_order: 3
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  - id: "2.2"
+    title: "What Is {{Category}}? A Plain-English Definition + Real Examples"
+    slug: "what-is-category"
+    pillar: "category-education"
+    primary_keyword: "what is {{category}}"
+    secondary_keywords:
+      - "{{category}} definition"
+      - "{{category}} explained"
+    keyword_volume: 1900
+    keyword_difficulty: 22
+    word_count_target: 1600
+    content_angle: "Definition + 5 real-world examples + when/when-not to use it. Heavy FAQ section."
+    schema_type: "FAQPage"
+    internal_links:
+      - { anchor: "Our {{category}} platform", url: "/" }
+      - { anchor: "Buying guide", url: "/blog/how-to-choose-category-tool-2026" }
+      - { anchor: "Book a demo", url: "/demo" }
+    publish_order: 4
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Product-led ----
+  - id: "3.1"
+    title: "{{Feature}}: How It Works and Why It Matters for {{ICP}}"
+    slug: "feature-explainer"
+    pillar: "product-led"
+    primary_keyword: "{{feature}}"
+    secondary_keywords:
+      - "{{feature}} for {{ICP}}"
+      - "how to {{job to be done}}"
+    keyword_volume: 210
+    keyword_difficulty: 10
+    word_count_target: 1500
+    content_angle: "Show, don't tell. Real screenshots, real customer outcome (named if possible), step-by-step walkthrough."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "{{Feature}} page", url: "/product/{{feature}}" }
+      - { anchor: "Customer story", url: "/customers/{{name}}" }
+      - { anchor: "Book a demo", url: "/demo" }
+    publish_order: 5
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Case studies / proof ----
+  - id: "4.1"
+    title: "How {{Customer}} Achieved {{Outcome}} with {{Product}} ({{Metric}}× in {{Timeframe}})"
+    slug: "customer-case-study"
+    pillar: "customer-case-studies"
+    primary_keyword: "{{customer}} case study"
+    secondary_keywords:
+      - "{{outcome}} case study"
+      - "how {{customer}} {{verb}}"
+    keyword_volume: 90
+    keyword_difficulty: 6
+    word_count_target: 1400
+    content_angle: "Named customer. Real numbers. Before/after with screenshots. AEO gold — LLMs preferentially cite content with named entities."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "More customer stories", url: "/customers" }
+      - { anchor: "{{Feature}} that powered this", url: "/product/{{feature}}" }
+      - { anchor: "Book a demo", url: "/demo" }
+    publish_order: 6
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- /vs/ alternative pages ----
+  - id: "5.1"
+    title: "Top 7 {{Product}} Alternatives in 2026 (Honest Comparison)"
+    slug: "product-alternatives-2026"
+    pillar: "competitor-comparisons"
+    primary_keyword: "{{product}} alternatives"
+    secondary_keywords:
+      - "{{product}} competitors"
+      - "best {{category}} tools"
+    keyword_volume: 590
+    keyword_difficulty: 24
+    word_count_target: 2200
+    content_angle: "Don't pretend we're the only option. Honest comparison table; we win on 2-3 dimensions, others win on others. Trust beats self-promotion."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Why {{product}}", url: "/why-{{product}}" }
+      - { anchor: "Pricing", url: "/pricing" }
+      - { anchor: "Book a demo", url: "/demo" }
+    publish_order: 7
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- ICP-specific ----
+  - id: "6.1"
+    title: "{{Category}} for {{ICP}}: A Tactical Guide"
+    slug: "category-for-icp"
+    pillar: "icp-targeted"
+    primary_keyword: "{{category}} for {{ICP}}"
+    secondary_keywords:
+      - "best {{category}} for {{ICP}}"
+      - "{{ICP}} {{category}} stack"
+    keyword_volume: 380
+    keyword_difficulty: 14
+    word_count_target: 1800
+    content_angle: "ICP-specific use cases, common workflows, real ICP customer names. Bookmarks well."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "{{Product}} for {{ICP}}", url: "/for/{{ICP}}" }
+      - { anchor: "{{ICP}} customer stories", url: "/customers?segment={{ICP}}" }
+      - { anchor: "Book a demo", url: "/demo" }
+    publish_order: 8
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }

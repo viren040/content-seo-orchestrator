@@ -1,0 +1,184 @@
+# ============================================================
+# Local Business — Starter pipeline
+# Copy to ./pipeline.yaml at repo root and edit for your brand.
+# Optimized for "{service} in {city}" queries + local AEO.
+# ============================================================
+
+version: 1
+project: "your-local-business-blog"
+last_updated: "2026-05-19"
+
+sanity:
+  project_id: "REPLACE_WITH_YOUR_SANITY_ID"
+  dataset: production
+  document_type: blogPost
+
+posts:
+
+  # ---- Pricing transparency (highest commercial intent) ----
+  - id: "1.1"
+    title: "How Much Does {{Service}} Cost in {{City}}? (2026 Pricing Guide)"
+    slug: "service-cost-city-2026"
+    pillar: "pricing-transparency"
+    primary_keyword: "{{service}} cost {{city}}"
+    secondary_keywords:
+      - "{{service}} pricing {{city}}"
+      - "average cost of {{service}} {{city}}"
+    keyword_volume: 880
+    keyword_difficulty: 8
+    word_count_target: 1600
+    content_angle: "Real ranges. Tier breakdown (budget / mid / premium). Specific to {{city}} — not national averages. AEO-shaped — FAQ-heavy, named neighborhoods."
+    schema_type: "HowTo"
+    internal_links:
+      - { anchor: "Get a free quote", url: "/quote" }
+      - { anchor: "Our pricing page", url: "/pricing" }
+      - { anchor: "Customer reviews", url: "/reviews" }
+    publish_order: 1
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Service-area pages ----
+  - id: "2.1"
+    title: "{{Service}} in {{Neighborhood}}, {{City}}: Local Provider's Guide"
+    slug: "service-in-neighborhood"
+    pillar: "service-area"
+    primary_keyword: "{{service}} {{neighborhood}}"
+    secondary_keywords:
+      - "{{service}} near {{neighborhood}}"
+      - "best {{service}} {{neighborhood}}"
+    keyword_volume: 420
+    keyword_difficulty: 5
+    word_count_target: 1300
+    content_angle: "Neighborhood-specific. Named streets, named landmarks, photos of recent local jobs (with permission). AEO loves this specificity."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Service areas we cover", url: "/service-areas" }
+      - { anchor: "Get a free quote", url: "/quote" }
+      - { anchor: "Recent {{neighborhood}} projects", url: "/projects" }
+    publish_order: 2
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- "How to choose" buyer-stage ----
+  - id: "3.1"
+    title: "How to Choose a {{Service Provider}} in {{City}}: 8 Questions to Ask"
+    slug: "how-to-choose-service-provider-city"
+    pillar: "buyer-education"
+    primary_keyword: "how to choose {{service provider}} {{city}}"
+    secondary_keywords:
+      - "best {{service provider}} {{city}}"
+      - "what to look for in {{service provider}}"
+    keyword_volume: 360
+    keyword_difficulty: 11
+    word_count_target: 1500
+    content_angle: "8 specific questions buyers should ask. We answer all 8 about ourselves; readers can use the list with competitors. Trust-builder."
+    schema_type: "FAQPage"
+    internal_links:
+      - { anchor: "About our team", url: "/about" }
+      - { anchor: "Licenses + certifications", url: "/certifications" }
+      - { anchor: "Get a free quote", url: "/quote" }
+    publish_order: 3
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Timeline / process transparency ----
+  - id: "4.1"
+    title: "How Long Does {{Service}} Take in {{City}}? (Step-by-Step Timeline)"
+    slug: "how-long-does-service-take"
+    pillar: "process-transparency"
+    primary_keyword: "how long does {{service}} take"
+    secondary_keywords:
+      - "{{service}} timeline {{city}}"
+      - "{{service}} process"
+    keyword_volume: 540
+    keyword_difficulty: 7
+    word_count_target: 1400
+    content_angle: "Day-by-day or week-by-week timeline. What buyers should expect at each step. AEO-shaped — directly answers a verbatim question."
+    schema_type: "HowTo"
+    internal_links:
+      - { anchor: "Get a quote with timeline estimate", url: "/quote" }
+      - { anchor: "Recent project timelines", url: "/projects" }
+      - { anchor: "Customer reviews", url: "/reviews" }
+    publish_order: 4
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Comparison / vs ----
+  - id: "5.1"
+    title: "{{Service Type A}} vs {{Service Type B}}: Which Is Right for Your {{City}} Home?"
+    slug: "service-type-a-vs-b"
+    pillar: "service-comparisons"
+    primary_keyword: "{{service type a}} vs {{service type b}}"
+    secondary_keywords:
+      - "{{service type a}} or {{service type b}}"
+      - "best option for {{use case}} {{city}}"
+    keyword_volume: 670
+    keyword_difficulty: 9
+    word_count_target: 1700
+    content_angle: "Honest pros/cons. Local climate / regulations factored in. We can offer both — recommendation depends on use case, not our margin."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "{{Service A}} services", url: "/services/{{a}}" }
+      - { anchor: "{{Service B}} services", url: "/services/{{b}}" }
+      - { anchor: "Get a free quote", url: "/quote" }
+    publish_order: 5
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Mistakes / red flags ----
+  - id: "6.1"
+    title: "7 Mistakes to Avoid When Hiring a {{Service Provider}} in {{City}}"
+    slug: "mistakes-to-avoid-hiring-service-provider"
+    pillar: "buyer-education"
+    primary_keyword: "{{service}} mistakes"
+    secondary_keywords:
+      - "red flags {{service provider}}"
+      - "how to not get scammed {{service}}"
+    keyword_volume: 310
+    keyword_difficulty: 6
+    word_count_target: 1400
+    content_angle: "Honest. Industry-insider perspective. Lists what to watch out for — even if it costs us a sale to do so. Builds massive trust."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Why choose us", url: "/about" }
+      - { anchor: "Reviews + verified credentials", url: "/reviews" }
+      - { anchor: "Get a free quote", url: "/quote" }
+    publish_order: 6
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Seasonal / local-events tie-in ----
+  - id: "7.1"
+    title: "{{Service}} in {{City}}: What to Know Before {{Season}}"
+    slug: "service-before-season"
+    pillar: "seasonal-guides"
+    primary_keyword: "{{service}} {{season}} {{city}}"
+    secondary_keywords:
+      - "{{service}} {{season}} tips"
+      - "when to {{service action}} {{city}}"
+    keyword_volume: 290
+    keyword_difficulty: 4
+    word_count_target: 1300
+    content_angle: "Local climate/seasonal angle. Refreshable yearly. Reads as a local insider."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Book a {{season}} appointment", url: "/quote" }
+      - { anchor: "{{Service}} services", url: "/services/{{slug}}" }
+      - { anchor: "Service areas", url: "/service-areas" }
+    publish_order: 7
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- AEO-specific (the angle most local businesses miss) ----
+  - id: "8.1"
+    title: "Is Your {{City}} {{Service Provider}} Cited by ChatGPT? Why It Matters in 2026"
+    slug: "ai-search-visibility-for-local-businesses"
+    pillar: "ai-search-visibility"
+    primary_keyword: "ai search local business"
+    secondary_keywords:
+      - "chatgpt local business"
+      - "ai visibility for {{service}}"
+    keyword_volume: 130
+    keyword_difficulty: 3
+    word_count_target: 1500
+    content_angle: "Education + PR-worthy. Shows you understand where local search is going. AEO-citation magnet."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Our AI-search audit (free)", url: "/free-audit" }
+      - { anchor: "Why hire us", url: "/about" }
+      - { anchor: "Get a quote", url: "/quote" }
+    publish_order: 8
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }

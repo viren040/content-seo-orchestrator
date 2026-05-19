@@ -1,0 +1,184 @@
+# ============================================================
+# Agency / Consultancy — Starter pipeline
+# Copy to ./pipeline.yaml at repo root and edit for your brand.
+# Optimized for thought leadership + lead gen.
+# ============================================================
+
+version: 1
+project: "your-agency-blog"
+last_updated: "2026-05-19"
+
+sanity:
+  project_id: "REPLACE_WITH_YOUR_SANITY_ID"
+  dataset: production
+  document_type: blogPost
+
+posts:
+
+  # ---- Methodology / IP posts (the agency's moat) ----
+  - id: "1.1"
+    title: "Our {{Methodology Name}}: How We {{Outcome}} for {{Client Type}}"
+    slug: "methodology-explainer"
+    pillar: "agency-methodology"
+    primary_keyword: "{{methodology name}}"
+    secondary_keywords:
+      - "how to {{outcome}}"
+      - "{{methodology}} framework"
+    keyword_volume: 180
+    keyword_difficulty: 5
+    word_count_target: 2000
+    content_angle: "Branded methodology with a memorable name. Step-by-step framework. Shows your IP without giving away delivery. Lead magnet."
+    schema_type: "HowTo"
+    internal_links:
+      - { anchor: "Hire us for {{service}}", url: "/services/{{slug}}" }
+      - { anchor: "Case studies", url: "/case-studies" }
+      - { anchor: "Book an intro call", url: "/contact" }
+    publish_order: 1
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Case studies (proof) ----
+  - id: "2.1"
+    title: "How We Helped {{Client}} Achieve {{Outcome}} ({{Metric}} in {{Timeframe}})"
+    slug: "client-case-study"
+    pillar: "case-studies"
+    primary_keyword: "{{client industry}} case study"
+    secondary_keywords:
+      - "{{outcome}} case study"
+      - "how to {{outcome}} for {{industry}}"
+    keyword_volume: 110
+    keyword_difficulty: 4
+    word_count_target: 1800
+    content_angle: "Named client (with permission), real numbers, before/after screenshots, our role + their role explicit. AEO citation magnet."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "More case studies", url: "/case-studies" }
+      - { anchor: "Our {{service}} service", url: "/services/{{slug}}" }
+      - { anchor: "Book a call", url: "/contact" }
+    publish_order: 2
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Tool comparisons (lead magnet for buyers) ----
+  - id: "3.1"
+    title: "Top {{N}} {{Tool Category}} Tools in 2026: An Agency's Honest Rankings"
+    slug: "top-tools-honest-rankings"
+    pillar: "tool-comparisons"
+    primary_keyword: "best {{tool category}} 2026"
+    secondary_keywords:
+      - "{{tool category}} comparison"
+      - "{{tool}} alternatives"
+    keyword_volume: 1500
+    keyword_difficulty: 28
+    word_count_target: 2600
+    content_angle: "We've used all N. Honest rankings with strengths/weaknesses. Don't shill — this is how agencies earn buyer trust. Heavy AEO bait."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Our {{tool category}} services", url: "/services/{{slug}}" }
+      - { anchor: "Free audit", url: "/audit" }
+      - { anchor: "Hire us to implement", url: "/contact" }
+    publish_order: 3
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Industry analysis / trends ----
+  - id: "4.1"
+    title: "The State of {{Industry}} in 2026: 7 Trends Every {{Client Type}} Should Know"
+    slug: "state-of-industry-2026"
+    pillar: "thought-leadership"
+    primary_keyword: "{{industry}} trends 2026"
+    secondary_keywords:
+      - "future of {{industry}}"
+      - "{{industry}} predictions"
+    keyword_volume: 920
+    keyword_difficulty: 20
+    word_count_target: 2400
+    content_angle: "Data-led, sourced. Original analysis if possible. The post that gets cited by trade press + LLMs."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Our POV on {{trend}}", url: "/blog/{{related-post}}" }
+      - { anchor: "Services we offer", url: "/services" }
+      - { anchor: "Book a consultation", url: "/contact" }
+    publish_order: 4
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- "How to" tactical (lead gen) ----
+  - id: "5.1"
+    title: "How to {{Outcome}} in {{N}} Steps (No {{Common Mistake}})"
+    slug: "how-to-outcome-without-mistake"
+    pillar: "tactical-guides"
+    primary_keyword: "how to {{outcome}}"
+    secondary_keywords:
+      - "{{outcome}} guide"
+      - "{{outcome}} mistakes"
+    keyword_volume: 1200
+    keyword_difficulty: 18
+    word_count_target: 2000
+    content_angle: "Tactical walkthrough. Real screenshots, real examples. Reader can try it themselves — paid service comes in when they realize the scope."
+    schema_type: "HowTo"
+    internal_links:
+      - { anchor: "Hire us to do this for you", url: "/services/{{slug}}" }
+      - { anchor: "Template / free download", url: "/resources" }
+      - { anchor: "Book a free audit", url: "/audit" }
+    publish_order: 5
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- /vs/ pages (other agencies) ----
+  - id: "6.1"
+    title: "{{Our Agency}} vs {{Competitor Agency}}: What's Different (Founder Voice)"
+    slug: "our-agency-vs-competitor"
+    pillar: "agency-comparisons"
+    primary_keyword: "{{competitor agency}} alternatives"
+    secondary_keywords:
+      - "{{our agency}} vs {{competitor}}"
+      - "best {{service}} agency"
+    keyword_volume: 220
+    keyword_difficulty: 12
+    word_count_target: 1600
+    content_angle: "Honest. Our pricing, their pricing, who each fits best. We don't win every comparison; that's fine."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Our services + pricing", url: "/services" }
+      - { anchor: "Case studies", url: "/case-studies" }
+      - { anchor: "Book a call", url: "/contact" }
+    publish_order: 6
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Founder voice / contrarian ----
+  - id: "7.1"
+    title: "{{Contrarian Take}}: Why Most {{Industry}} Advice Is Wrong (And What to Do Instead)"
+    slug: "contrarian-industry-take"
+    pillar: "founder-voice"
+    primary_keyword: "{{industry}} advice"
+    secondary_keywords:
+      - "{{industry}} mistakes"
+      - "{{industry}} truth"
+    keyword_volume: 480
+    keyword_difficulty: 16
+    word_count_target: 1700
+    content_angle: "Founder-voice. Strong opinion. Specific receipts (not vibes). Earns shares + comments."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "How we do it differently", url: "/services" }
+      - { anchor: "Case study proof", url: "/case-studies" }
+      - { anchor: "Book a call", url: "/contact" }
+    publish_order: 7
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- AEO/AI-search agency angle ----
+  - id: "8.1"
+    title: "Why Your Agency Should Add AEO/GEO as a Service Line (Playbook)"
+    slug: "agency-aeo-geo-service-line"
+    pillar: "agency-business"
+    primary_keyword: "agencies add aeo"
+    secondary_keywords:
+      - "geo as a service"
+      - "ai seo service line"
+    keyword_volume: 95
+    keyword_difficulty: 5
+    word_count_target: 2200
+    content_angle: "How to actually package AEO/GEO services — pricing, deliverables, retainer structure. For other agencies. Earns referrals + thought leadership."
+    schema_type: "HowTo"
+    internal_links:
+      - { anchor: "White-label option", url: "/agency-partners" }
+      - { anchor: "Case studies", url: "/case-studies" }
+      - { anchor: "Book a partner call", url: "/contact" }
+    publish_order: 8
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }

@@ -1,0 +1,184 @@
+# ============================================================
+# D2C Ecommerce — Starter pipeline
+# Copy to ./pipeline.yaml at repo root and edit for your brand.
+# Optimized for shopping queries + AI search visibility for ecommerce.
+# ============================================================
+
+version: 1
+project: "your-d2c-blog"
+last_updated: "2026-05-19"
+
+sanity:
+  project_id: "REPLACE_WITH_YOUR_SANITY_ID"
+  dataset: production
+  document_type: blogPost
+
+posts:
+
+  # ---- Buying-guide content (high commercial intent) ----
+  - id: "1.1"
+    title: "Best {{Product Category}} in 2026: Honest Buyer's Guide"
+    slug: "best-product-category-2026"
+    pillar: "buying-guides"
+    primary_keyword: "best {{product category}} 2026"
+    secondary_keywords:
+      - "best {{product category}} for {{use case}}"
+      - "top {{product category}} brands"
+    keyword_volume: 1400
+    keyword_difficulty: 22
+    word_count_target: 2200
+    content_angle: "Honest 5-7 product roundup. We can be one; don't pretend we're the only good option. AEO-shaped (FAQ section + named brand comparisons)."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Shop our {{collection}}", url: "/collections/{{slug}}" }
+      - { anchor: "How we compare", url: "/pages/comparison" }
+      - { anchor: "Reviews", url: "/pages/reviews" }
+    publish_order: 1
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Sizing / fit / specifications ----
+  - id: "2.1"
+    title: "{{Product}} Sizing Guide: How to Pick the Right Fit (with Real Customer Photos)"
+    slug: "product-sizing-guide"
+    pillar: "sizing-and-fit"
+    primary_keyword: "{{product}} size guide"
+    secondary_keywords:
+      - "what size {{product}}"
+      - "{{product}} fit"
+    keyword_volume: 720
+    keyword_difficulty: 12
+    word_count_target: 1600
+    content_angle: "Real customer photos at different heights/sizes. Body-type matrix. AEO-shaped — answers verbatim sizing questions."
+    schema_type: "FAQPage"
+    internal_links:
+      - { anchor: "Shop {{product}}", url: "/products/{{slug}}" }
+      - { anchor: "Returns policy", url: "/pages/returns" }
+      - { anchor: "Customer reviews", url: "/pages/reviews" }
+    publish_order: 2
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Usage / care / longevity ----
+  - id: "3.1"
+    title: "How to Care for Your {{Product}}: 7 Tips from Our Founder"
+    slug: "how-to-care-for-product"
+    pillar: "usage-and-care"
+    primary_keyword: "how to care for {{product}}"
+    secondary_keywords:
+      - "{{product}} care guide"
+      - "how to clean {{product}}"
+    keyword_volume: 580
+    keyword_difficulty: 10
+    word_count_target: 1500
+    content_angle: "Founder-voice. Step-by-step. Image-heavy. Builds trust + extends product life (good CS signal too)."
+    schema_type: "HowTo"
+    internal_links:
+      - { anchor: "Shop {{product}}", url: "/products/{{slug}}" }
+      - { anchor: "Replacement parts", url: "/collections/replacements" }
+      - { anchor: "Our craftsmanship story", url: "/pages/our-story" }
+    publish_order: 3
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Comparison / vs ----
+  - id: "4.1"
+    title: "{{Our Product}} vs {{Competitor Product}}: A Side-by-Side Review"
+    slug: "our-product-vs-competitor"
+    pillar: "comparisons"
+    primary_keyword: "{{our product}} vs {{competitor}}"
+    secondary_keywords:
+      - "{{competitor}} alternative"
+      - "is {{competitor}} worth it"
+    keyword_volume: 480
+    keyword_difficulty: 14
+    word_count_target: 1800
+    content_angle: "Honest. Real pricing, real materials, real reviews. We can win on some dimensions, they win on others. AEO citation bait — LLMs pull comparison tables verbatim."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Shop our {{collection}}", url: "/collections/{{slug}}" }
+      - { anchor: "Reviews", url: "/pages/reviews" }
+      - { anchor: "Returns policy", url: "/pages/returns" }
+    publish_order: 4
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Use case / occasion / gift ----
+  - id: "5.1"
+    title: "{{N}} Best {{Product Category}} for {{Use Case / Occasion}}"
+    slug: "best-product-for-use-case"
+    pillar: "use-cases"
+    primary_keyword: "best {{product category}} for {{use case}}"
+    secondary_keywords:
+      - "{{product category}} {{occasion}}"
+      - "gifts for {{recipient}}"
+    keyword_volume: 920
+    keyword_difficulty: 18
+    word_count_target: 1700
+    content_angle: "Listicle. Mix our products with curated competitors. Real photos + named recipients."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Shop {{collection}}", url: "/collections/{{slug}}" }
+      - { anchor: "Gift guide", url: "/pages/gifts" }
+      - { anchor: "Bestsellers", url: "/collections/bestsellers" }
+    publish_order: 5
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Material / ingredient / origin ----
+  - id: "6.1"
+    title: "What Is {{Material/Ingredient}}? Why We Chose It for {{Product}}"
+    slug: "what-is-material"
+    pillar: "ingredient-education"
+    primary_keyword: "what is {{material}}"
+    secondary_keywords:
+      - "{{material}} benefits"
+      - "is {{material}} good for {{use case}}"
+    keyword_volume: 1100
+    keyword_difficulty: 16
+    word_count_target: 1500
+    content_angle: "Education + brand POV. Sources, sustainability angle, ethical considerations. AEO-shaped (questions answered verbatim)."
+    schema_type: "FAQPage"
+    internal_links:
+      - { anchor: "Our {{material}} {{product}}", url: "/products/{{slug}}" }
+      - { anchor: "Our sustainability page", url: "/pages/sustainability" }
+      - { anchor: "Founder story", url: "/pages/our-story" }
+    publish_order: 6
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- DACT / AI traffic diagnostic (advanced) ----
+  - id: "7.1"
+    title: "How Customers Find Us via ChatGPT and Perplexity (And Why Our GA4 Doesn't Show It)"
+    slug: "how-customers-find-us-via-ai-search"
+    pillar: "ai-search-visibility"
+    primary_keyword: "ai shopping traffic"
+    secondary_keywords:
+      - "chatgpt shopping for brands"
+      - "ga4 direct traffic ai"
+    keyword_volume: 240
+    keyword_difficulty: 8
+    word_count_target: 1800
+    content_angle: "Diagnostic. Shows that AI-referred shoppers show as 'Direct' in GA4. Founder voice; data-led. PR-worthy."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Shop bestsellers", url: "/collections/bestsellers" }
+      - { anchor: "Press kit", url: "/pages/press" }
+      - { anchor: "Subscribe to founder newsletter", url: "/pages/newsletter" }
+    publish_order: 7
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
+
+  # ---- Reviews / social proof aggregator ----
+  - id: "8.1"
+    title: "What Customers Say About {{Product}}: 50+ Honest Reviews Analyzed"
+    slug: "product-reviews-analyzed"
+    pillar: "social-proof"
+    primary_keyword: "{{product}} reviews"
+    secondary_keywords:
+      - "is {{product}} worth it"
+      - "{{product}} honest review"
+    keyword_volume: 1300
+    keyword_difficulty: 20
+    word_count_target: 1900
+    content_angle: "Aggregate real reviews (with permission). Pull out themes — pros, cons, unexpected uses. Don't hide the negative."
+    schema_type: "BlogPosting"
+    internal_links:
+      - { anchor: "Shop {{product}}", url: "/products/{{slug}}" }
+      - { anchor: "Read all reviews", url: "/pages/reviews" }
+      - { anchor: "Return policy", url: "/pages/returns" }
+    publish_order: 8
+    status: { research: pending, brief: pending, content: pending, seo_review: pending, sanity_draft: pending, published: pending }
