@@ -1,0 +1,81 @@
+# ============================================================
+# Example: Asva AI — SEO Pipeline Global Settings
+# Copy this to `seo-settings.yaml` and customize for your brand.
+# Referenced by all /seo-* commands.
+# ============================================================
+
+brand:
+  name: "Asva AI"
+  tagline: "Invisible Infrastructure. Undeniable Presence."
+  author_default: "Asva AI Team"
+  author_personal: "Viren Inaniyan"
+  cta_url: "/demo"
+  get_audit_url: "/get-audit"
+  website: "https://asvaai.com"
+
+sanity:
+  project_id: en9d2pb2
+  dataset: production
+  schema_type: blogPost
+
+seo_defaults:
+  schema_type: "BlogPosting"
+  meta_title_max: 70
+  meta_title_ideal: "50-60"
+  meta_description_max: 160
+  meta_description_ideal: "150-160"
+  excerpt_max: 250
+  excerpt_ideal: "150-200"
+  min_word_count: 1200
+  keyword_density_target: "1-2%"
+  min_internal_links: 3
+  min_faqs: 3
+  max_faqs: 6
+
+content_rules:
+  voice: "Precise, Confident, Useful"
+  brand_pillars:
+    - "Precision — SKU-level accuracy"
+    - "Authority — Primary data, sourced claims"
+    - "Momentum — Inside a moving category"
+    - "Clarity — Complex made legible"
+  content_pillars:
+    - aeo-fundamentals
+    - ai-visibility-tracking
+    - chatgpt-perplexity-optimization
+    - reddit-community-intelligence
+    - technical-aeo
+    - competitive-intelligence
+    - agency-enterprise
+  tone_guidelines:
+    - "No fluff — every sentence earns its place"
+    - "Data-backed claims with sources"
+    - "Write for practitioners, not beginners"
+    - "Use real examples (ITC, McCain, etc.) not hypotheticals"
+    - "CTA feels natural, not salesy"
+
+design:
+  colors:
+    primary_bg: "#0A0F1E"      # Deep Space Navy
+    primary_accent: "#6C63FF"  # Electric Violet
+    success: "#00C9B1"         # Agentic Teal
+    warning: "#F5A623"         # Signal Amber
+    secondary_bg: "#2A2D3E"    # Dark Slate
+    light_text: "#FFFFFF"      # Pure White
+    supporting_text: "#9B99B5" # Stellar Grey
+  fonts:
+    headline: "Space Grotesk"
+    body: "Inter"
+    data: "JetBrains Mono"
+  canva_brand_kit_id: "kAGYIU1mVv8"
+
+# Optional file paths the commands can read for richer context.
+# Use absolute paths or paths relative to the repo root.
+paths:
+  planning_brief: "./docs/planning-brief.md"   # Per-post Perplexity prompts
+  playbook_reference: "./docs/seo-playbook.md"
+  image_generator: "./generate-blog-images.py"
+  blog_images: "./blog-images"
+  output: "./output"
+  brand_bible: "./docs/brand-bible.md"
+  figma_diagrams: "./docs/figma-diagrams.md"

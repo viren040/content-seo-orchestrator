@@ -1,123 +1,120 @@
-# Asva AI Blog Pipeline — Orchestrator
+# Content SEO Orchestrator — Agent Flow
 
 ## Overview
 3-agent pipeline to go from content brief → published blog post with images.
+This document describes the underlying architecture. For day-to-day use, see [README.md](./README.md) and the `/seo-*` slash commands.
 
 ---
 
-## Agent 1: Image Agent (DONE)
+## Agent 1: Image Agent
 
-### Local PNG Generator
+### Local PNG Generator (cover + social cards)
 ```bash
-cd "/Users/viren/SEO - Asva Main Website"
-source .venv/bin/activate
+# 1200x630 branded cover for the post
+python generate_covers.py \
+  --slug your-blog-slug \
+  --title "Your Blog Title" \
+  --output ./covers/
+
+# Per-post social cards (OG / Twitter / LinkedIn / hero)
 python generate-blog-images.py \
   --title "Your Blog Title" \
   --tag "Playbook" \
   --subtitle "One-line description" \
   --date "March 2026" \
-  --output ./blog-images/<slug>/
+  --output ./blog-images/your-blog-slug/
 ```
 **Outputs per post:** `blog-hero.png`, `social-og.png`, `twitter-card.png`, `linkedin-card.png`
 
-### Figma Infographics
+### Figma / FigJam Diagrams
 - Tool: Figma MCP → `generate_diagram` (Mermaid.js → FigJam)
 - Supports: flowcharts, sequence diagrams, state diagrams, gantt charts
 - Export: `get_screenshot` to PNG, or use FigJam claim URLs
 
-### Status: 13/13 posts — all images generated
-
 ---
 
-## Agent 2: Content Generation Agent (NEXT)
+## Agent 2: Content Generation Agent
 
 ### Input
-- `/Users/viren/Desktop/Asva AI — Docs & Strategy/Feature-Page-Blog-Planning-Brief.md`
-- Contains Perplexity research prompts per post
+- `./pipeline.yaml` — post registry
+- `./config/seo-settings.yaml → paths.planning_brief` — optional doc with per-post Perplexity research prompts
+- `./output/<slug>/research.md` — research output from `/seo-research`
+- `./output/<slug>/brief.md` — content brief from `/seo-brief`
 
 ### Process
-1. Run Perplexity prompts → gather research data
-2. Generate full blog post markdown per content brief
-3. Follow Asva AI voice: Precise, Confident, Useful
-4. Include SEO metadata: title tag, meta description, slug, primary KW, secondary KWs
-5. Reference infographic diagrams at appropriate sections
-6. Output: Sanity-ready markdown with image references
+1. Run Perplexity prompts (via API or copy-paste) → gather research data
+2. Generate content brief from research (`/seo-brief`)
+3. Write full blog post markdown from brief (`/seo-write`)
+4. Follow brand voice from `config/seo-settings.yaml → content_rules`
+5. Include SEO metadata: title tag, meta description, slug, primary KW, secondary KWs
+6. Reference infographic diagrams at appropriate sections
+7. Output: CMS-ready markdown with image references
 
 ### Output Location
 ```
-/Users/viren/SEO - Asva Main Website/blog-content/<slug>.md
+./output/<slug>/draft.md
 ```
 
 ---
 
-## Agent 3: Sanity Publishing Agent (EXISTS — separate session)
+## Agent 3: CMS Publishing Agent
 
 ### Process
-1. Read blog content markdown
-2. Upload images to Sanity asset pipeline
-3. Create `blogPost` document with:
-   - Portable text blocks
-   - SEO metadata
-   - Image references (hero, OG, inline infographics)
-   - Author: Viren Inaniyan
-   - Category/tags
-4. Publish or schedule
+1. Read draft markdown + frontmatter
+2. Upload images to your CMS asset pipeline (or reference existing assets)
+3. Build the CMS document JSON (see `templates/sanity-document.json` for shape)
+4. Publish via your CMS API/MCP
+5. Submit to IndexNow (Bing/Yandex) for instant indexing
 
-### Sanity MCP Tools
-- `create_documents_from_markdown` — push markdown as Sanity doc
-- `patch_document_from_markdown` — update existing post
-- `publish_documents` — go live
+### Sanity (reference implementation)
+Direct HTTP API (recommended over MCP for deterministic `_id`):
+```bash
+curl -X POST "https://${SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/mutate/${SANITY_DATASET}" \
+  -H "Authorization: Bearer $SANITY_AUTH_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{ "mutations": [{ "createOrReplace": <PAYLOAD_WITH_DETERMINISTIC_ID> }] }'
+```
+
+### Swapping CMS
+Edit `.claude/commands/seo-publish.md` — replace the Sanity curl/MCP calls with your CMS's API. The rest of the pipeline is CMS-agnostic.
 
 ---
 
 ## Orchestrator Flow
 
 ```
-Content Brief (planning doc)
-    │
-    ▼
-┌─────────────────────────┐
-│  Agent 2: Content Gen   │ ← Perplexity research
-│  Output: blog markdown  │
-└────────────┬────────────┘
-             │
-    ┌────────┴────────┐
-    ▼                 ▼
-┌──────────┐  ┌──────────────┐
-│ Agent 1  │  │ Agent 1      │
-│ Local PNG│  │ Figma Diagrams│
-└────┬─────┘  └──────┬───────┘
-     │               │
-     └───────┬───────┘
-             ▼
-┌─────────────────────────┐
-│  Agent 3: Sanity Publish│
-│  Images + Content → CMS │
-└─────────────────────────┘
+Content Brief (pipeline.yaml + planning_brief)
+    |
+    v
++-------------------------+
+|  /seo-research          | <- Perplexity Deep Research API
+|  /seo-brief             |
+|  /seo-write             |
+|  Output: blog markdown  |
++-----------+-------------+
+            |
+    +-------+-------+
+    v               v
++----------+  +----------------+
+| Covers   |  | Figma Diagrams |
+| Hero PNG |  | (Mermaid→FigJam)|
++----+-----+  +-------+--------+
+     |                |
+     +--------+-------+
+              v
++-------------------------+
+|  /seo-optimize          | <- SEO score (10 checks × 10 pts)
+|  /seo-publish           | <- CMS publish + IndexNow ping
++-------------------------+
 ```
 
 ---
 
-## Publish Order (lowest KD first)
-1. `audit-brand-visibility-llms` (KD 2)
-2. `brands-invisible-ai-search-how-to-fix` (KD 12)
-3. `what-is-ai-visibility-score` (KD 13)
-4. `ai-seo-agency-guide` (KD 15)
-5. `strategies-improve-brand-visibility-ai-search` (KD 17)
-6. `best-ai-search-monitoring-platforms-2026` (KD 18)
-7. `how-to-track-brand-mentions-ai-search` (KD 19)
-8. `how-ai-search-citation-sources-work` (KD 20)
-9. `agencies-add-aeo-service-offering` (KD 20)
-10. `why-use-ai-search-monitoring-tools` (KD 22)
-11. `agency-rank-tracking-ai-platforms` (KD 26)
-12. `ai-search-competitive-analysis` (KD 33)
-
----
-
 ## How to Continue in Future Sessions
-Say: **"continue blog pipeline"** — Claude will load memory and pick up where we left off.
+The pipeline is stateless — every command re-reads `pipeline.yaml` and `output/<slug>/*` to figure out where you left off. Just run `/seo-status` or `/seo-daily` to pick up.
 
 ### Quick Commands
-- Generate images for new post: `python generate-blog-images.py --title "..." --output ./blog-images/<slug>/`
+- Generate covers: `python generate_covers.py --slug <slug>`
+- Generate social images: `python generate-blog-images.py --output ./blog-images/<slug>/`
 - Generate Figma diagram: use `generate_diagram` via Figma MCP
-- Check status: read `project_blog_pipeline.md` in memory
+- Check status: `/seo-status`

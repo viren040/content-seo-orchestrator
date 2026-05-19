@@ -34,14 +34,20 @@
 **What:** Powers the `/seo-publish` step to push blog posts to CMS.
 **Cost:** Free tier = 250K API requests/month. More than enough.
 
-**Setup:** Already connected via Sanity MCP. No additional keys needed.
-- Project ID: `en9d2pb2`
-- Dataset: `production`
+**Setup:** Two options.
 
-**If setting up fresh:**
+**Option A — Direct HTTP API (recommended).** Set in `.env`:
+```bash
+SANITY_AUTH_TOKEN=sk...          # write-scope token
+SANITY_PROJECT_ID=your-project-id
+SANITY_DATASET=production
+```
+The orchestrator uses HTTP directly for publish operations (see `.claude/commands/seo-publish.md` for why — the MCP overwrites custom `_id` values).
+
+**Option B — Sanity MCP** (useful for queries, asset uploads, etc.):
 1. Install Sanity MCP: https://www.sanity.io/docs/mcp
 2. Authenticate via `sanity login`
-3. The MCP handles auth automatically
+3. Set `sanity.project_id` and `sanity.dataset` in `config/seo-settings.yaml`
 
 ---
 

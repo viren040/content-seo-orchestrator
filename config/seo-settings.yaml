@@ -1,19 +1,23 @@
 # ============================================================
-# ASVA AI — SEO Pipeline Global Settings
-# Referenced by all /seo-* commands
+# SEO Pipeline Global Settings — Template
+# Edit this file with your brand's values, or copy
+# config/seo-settings.example.yaml as a starting point.
+# Referenced by all /seo-* commands.
 # ============================================================
 
 brand:
-  name: "Asva AI"
-  tagline: "Invisible Infrastructure. Undeniable Presence."
-  author_default: "Asva AI Team"
-  author_personal: "Viren Inaniyan"
-  cta_url: "/demo"
-  get_audit_url: "/get-audit"
-  website: "https://asvaai.com"
+  name: "Your Brand"
+  tagline: "Your one-line positioning"
+  author_default: "Your Brand Team"
+  author_personal: "Your Name"
+  cta_url: "/demo"            # Primary CTA path (relative to website)
+  get_audit_url: "/get-audit" # Secondary CTA (optional)
+  website: "https://example.com"
 
+# CMS — Sanity reference implementation.
+# Swap for your CMS by editing .claude/commands/seo-publish.md.
 sanity:
-  project_id: en9d2pb2
+  project_id: "your-project-id"   # Or set $SANITY_PROJECT_ID in .env
   dataset: production
   schema_type: blogPost
 
@@ -34,45 +38,38 @@ seo_defaults:
 content_rules:
   voice: "Precise, Confident, Useful"
   brand_pillars:
-    - "Precision — SKU-level accuracy"
-    - "Authority — Primary data, sourced claims"
-    - "Momentum — Inside a moving category"
-    - "Clarity — Complex made legible"
+    - "Pillar 1 — short descriptor"
+    - "Pillar 2 — short descriptor"
+    - "Pillar 3 — short descriptor"
   content_pillars:
-    - aeo-fundamentals
-    - ai-visibility-tracking
-    - chatgpt-perplexity-optimization
-    - reddit-community-intelligence
-    - technical-aeo
-    - competitive-intelligence
-    - agency-enterprise
+    - your-topic-cluster-1
+    - your-topic-cluster-2
+    - your-topic-cluster-3
   tone_guidelines:
     - "No fluff — every sentence earns its place"
     - "Data-backed claims with sources"
     - "Write for practitioners, not beginners"
-    - "Use real examples (ITC, McCain, etc.) not hypotheticals"
+    - "Use real customer examples, not hypotheticals"
     - "CTA feels natural, not salesy"
 
 design:
   colors:
-    primary_bg: "#0A0F1E"      # Deep Space Navy
-    primary_accent: "#6C63FF"  # Electric Violet
-    success: "#00C9B1"         # Agentic Teal
-    warning: "#F5A623"         # Signal Amber
-    secondary_bg: "#2A2D3E"    # Dark Slate
-    light_text: "#FFFFFF"      # Pure White
-    supporting_text: "#9B99B5" # Stellar Grey
+    primary_bg: "#000000"
+    primary_accent: "#3366FF"
+    success: "#00C9B1"
+    warning: "#F5A623"
   fonts:
-    headline: "Space Grotesk"
+    headline: "Inter"
     body: "Inter"
-    data: "JetBrains Mono"
-  canva_brand_kit_id: "kAGYIU1mVv8"
+  canva_brand_kit_id: ""
 
+# Optional file paths the commands read for richer context.
+# Use absolute paths or paths relative to the repo root.
 paths:
-  planning_brief: "/Users/viren/Desktop/Asva AI — Docs & Strategy/Feature-Page-Blog-Planning-Brief.md"
-  playbook_reference: "/Users/viren/Desktop/Asva AI — Docs & Strategy/05_BLOG-POST_claude-seo-automation-stack-march-2026.md"
-  image_generator: "/Users/viren/SEO - Asva Main Website/generate-blog-images.py"
-  blog_images: "/Users/viren/SEO - Asva Main Website/blog-images"
-  output: "/Users/viren/SEO - Asva Main Website/output"
-  brand_bible: "/Users/viren/.claude/projects/-Users-viren-SEO---Asva-Main-Website/memory/brand_bible.md"
-  figma_diagrams: "/Users/viren/.claude/projects/-Users-viren-SEO---Asva-Main-Website/memory/reference_figma_diagrams.md"
+  planning_brief: "./docs/planning-brief.md"   # Per-post Perplexity prompts
+  playbook_reference: "./docs/seo-playbook.md"
+  image_generator: "./generate-blog-images.py"
+  blog_images: "./blog-images"
+  output: "./output"
+  brand_bible: "./docs/brand-bible.md"
+  figma_diagrams: "./docs/figma-diagrams.md"

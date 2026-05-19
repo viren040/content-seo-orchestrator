@@ -1,13 +1,14 @@
 ---
 # ============================================================
-# ASVA AI Blog Post — Sanity CMS Ready
-# Template version: 1.0
+# Blog Post — CMS-Ready Markdown Template
+# Template version: 1.1
+# Fill {{PLACEHOLDERS}} from your content brief.
 # ============================================================
 
 # SEO & Content Metadata
 title: "{{TITLE}}"
 slug: "{{SLUG}}"
-author: "Asva AI Team"
+author: "{{AUTHOR — from config/seo-settings.yaml → brand.author_default}}"
 publishedAt: "{{YYYY-MM-DD}}"
 updatedAt: "{{YYYY-MM-DD}}"
 
@@ -17,7 +18,7 @@ metaDescription: "{{META_DESCRIPTION — max 160 chars}}"
 primaryKeyword: "{{PRIMARY_KEYWORD}}"
 schemaType: "{{BlogPosting|HowTo|FAQPage}}"
 canonicalUrl: ""
-ctaUrl: "/demo"
+ctaUrl: "{{from config/seo-settings.yaml → brand.cta_url}}"
 
 # Taxonomy
 pillar: "{{PILLAR}}"
@@ -83,7 +84,7 @@ _{{EXCERPT}}_
 
 {{Summary of key points}}
 
-{{Natural CTA — link to /demo or /get-audit}}
+{{Natural CTA — link to brand.cta_url}}
 
 ---
 
@@ -109,7 +110,7 @@ A: {{Answer 6}}
 
 ---
 
-<!-- INTERNAL LINKS (for Sanity internalLinks array) -->
+<!-- INTERNAL LINKS (for CMS internalLinks array) -->
 <!--
 - anchor: "{{ANCHOR_TEXT}}" → url: "{{URL}}"
 - anchor: "{{ANCHOR_TEXT}}" → url: "{{URL}}"

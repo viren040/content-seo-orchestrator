@@ -1,16 +1,18 @@
 # /seo-research — Perplexity Deep Research Phase (API-powered)
 
-You are the research coordinator for Asva AI's Content SEO pipeline.
+You are the research coordinator for the Content SEO pipeline.
 
 **Argument:** `$ARGUMENTS` (the blog post slug)
 
 ## What to Do
 
 ### Step 1: Load Context
-1. Read `/Users/viren/SEO - Asva Main Website/pipeline.yaml` — find the post matching the slug
-2. Read `/Users/viren/Desktop/Asva AI — Docs & Strategy/Feature-Page-Blog-Planning-Brief.md` — find the exact Perplexity research prompt for this post
-3. Read `/Users/viren/SEO - Asva Main Website/templates/research-brief.md` — load the output template
-4. Read `/Users/viren/SEO - Asva Main Website/config/seo-settings.yaml` — load settings
+All paths below are relative to the repo root (current working directory).
+
+1. Read `./pipeline.yaml` — find the post matching the slug
+2. Read `./config/seo-settings.yaml` — load brand + settings. If a `paths.planning_brief` key is set, it points to an external doc with per-post Perplexity prompts.
+3. Read the planning brief at `paths.planning_brief` (if set) — find the exact Perplexity prompt for this post. If unset, derive a prompt from the post's `title`, `primary_keyword`, and `content_angle`.
+4. Read `./templates/research-brief.md` — load the output template.
 
 If the slug doesn't match any post in pipeline.yaml, show available slugs.
 If research is already done for this slug, warn the user and ask if they want to overwrite.
@@ -37,14 +39,14 @@ curl -s https://api.perplexity.ai/chat/completions \
       },
       {
         "role": "user",
-        "content": "{{PERPLEXITY_RESEARCH_PROMPT_FROM_PLANNING_BRIEF}}"
+        "content": "{{PERPLEXITY_RESEARCH_PROMPT}}"
       }
     ],
     "search_recency_filter": "month"
   }'
 ```
 
-**Environment variable:** `PERPLEXITY_API_KEY` must be set (starts with `pplx-`).
+**Environment variable:** `PERPLEXITY_API_KEY` must be set (starts with `pplx-`). See `.env.example`.
 If not set, fall back to manual mode: present the prompt and ask user to paste results.
 
 **Fallback mode (if API fails or no key):**
@@ -59,15 +61,16 @@ If not set, fall back to manual mode: present the prompt and ask user to paste r
    - **Key Statistics & Data Points** — extract EVERY stat with source attribution into a table
    - **Competitor Content Analysis** — identify top 5 ranking URLs, their strengths, their gaps
    - **Expert Opinions & Quotes** — pull any named sources/quotes with attribution
-   - **Unique Angles Not Yet Covered** — identify 3+ fresh takes we can own
-   - **Internal Linking Opportunities** — cross-reference pipeline.yaml for all Asva AI posts/pages
+   - **Unique Angles Not Yet Covered** — identify 3+ fresh takes the brand can own
+   - **Internal Linking Opportunities** — cross-reference `pipeline.yaml` for sibling posts/pages
    - **Raw Research Output** — preserve full Perplexity response verbatim
    - **API Metadata** — model used, tokens consumed, citations returned, cost estimate
 
-3. Save the structured research to: `/Users/viren/SEO - Asva Main Website/output/{{SLUG}}/research.md`
+3. Save the structured research to: `./output/{{SLUG}}/research.md`
+4. (Optional) Save raw API JSON to: `./output/{{SLUG}}/research-raw.json`
 
 ### Step 5: Update Pipeline
-1. Update `pipeline.yaml` — set this post's `status.research: done`
+1. Update `./pipeline.yaml` — set this post's `status.research: done`
 2. Show cost summary: "Research cost: ~$X.XX (sonar-deep-research)"
 3. Confirm to user: "Research saved. Next step: `/seo-brief {{SLUG}}`"
 

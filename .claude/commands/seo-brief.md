@@ -1,16 +1,18 @@
 # /seo-brief — Content Brief Generator
 
-You are the content strategist for Asva AI's Content SEO pipeline.
+You are the content strategist for the Content SEO pipeline.
 
 **Argument:** `$ARGUMENTS` (the blog post slug)
 
 ## What to Do
 
 ### Step 1: Load Context
-1. Read `/Users/viren/SEO - Asva Main Website/pipeline.yaml` — find the post matching the slug
-2. Read `/Users/viren/SEO - Asva Main Website/output/{{SLUG}}/research.md` — load completed research
-3. Read `/Users/viren/SEO - Asva Main Website/templates/content-brief.md` — load brief template
-4. Read `/Users/viren/SEO - Asva Main Website/config/seo-settings.yaml` — load SEO rules
+All paths below are relative to the repo root.
+
+1. Read `./pipeline.yaml` — find the post matching the slug
+2. Read `./output/{{SLUG}}/research.md` — load completed research
+3. Read `./templates/content-brief.md` — load brief template
+4. Read `./config/seo-settings.yaml` — load SEO rules + brand voice (`content_rules.voice`, `content_rules.tone_guidelines`, `brand.cta_url`)
 
 If research.md doesn't exist, tell the user: "Research not done yet. Run `/seo-research {{SLUG}}` first."
 
@@ -39,19 +41,19 @@ Using the research and post metadata, fill out the content brief template:
    - Each must have source attribution
 
 5. **Internal Links**
-   - Cross-reference pipeline.yaml for all other posts
+   - Cross-reference `pipeline.yaml` for sibling posts
    - Map at least 3 internal links with specific anchor text and placement
-   - Include feature page CTA and /get-audit
+   - Include the brand CTA from `config/seo-settings.yaml → brand.cta_url`
 
 6. **Differentiation Notes**
    - What makes this NOT another generic post on this topic?
-   - What data/examples/perspective does Asva AI uniquely have?
+   - What data/examples/perspective does the brand uniquely have?
 
 ### Step 3: Present & Save
 1. Present the full brief to the user for review
 2. Ask: "Does this brief look good? Any sections to adjust before writing?"
-3. After approval, save to: `/Users/viren/SEO - Asva Main Website/output/{{SLUG}}/brief.md`
-4. Update `pipeline.yaml` — set `status.brief: done`
+3. After approval, save to: `./output/{{SLUG}}/brief.md`
+4. Update `./pipeline.yaml` — set `status.brief: done`
 5. Confirm: "Brief saved. Next step: `/seo-write {{SLUG}}`"
 
 ## Quality Rules
@@ -59,4 +61,4 @@ Using the research and post metadata, fill out the content brief template:
 - Outline MUST have at least 4 H2 sections
 - MUST include at least 3 internal links
 - CTA must feel natural, not salesy — "if you want to automate this" positioning
-- Voice: Precise, Confident, Useful — write for practitioners, not beginners
+- Voice: pull from `config/seo-settings.yaml → content_rules.voice` (e.g. "Precise, Confident, Useful")

@@ -1,20 +1,73 @@
+# ============================================================
 # Python
+# ============================================================
 .venv/
+venv/
 __pycache__/
 *.pyc
+*.pyo
+.pytest_cache/
 
+# ============================================================
 # Claude Code
+# ============================================================
 .claude/settings.local.json
 *.jsonl
 
-# Environment
+# ============================================================
+# Environment / Secrets — DO NOT COMMIT
+# ============================================================
 .env
 .env.local
+.env.*.local
+*.pem
+*.key
+service-account*.json
+credentials*.json
+secrets/
 
+# ============================================================
+# Per-project memory / session files (often contain creds + notes)
+# ============================================================
+SESSION-MEMORY.md
+SESSION-LOG-*.md
+!docs/SESSION-LOG-example.md
+*-credentials.yaml
+*-credentials.yml
+*credentials.md
+brand_bible.md
+
+# ============================================================
+# Per-brand configs — only the template/example is tracked
+# ============================================================
+config/*-seo-settings.yaml
+!config/seo-settings.yaml
+!config/seo-settings.example.yaml
+
+# Brand-specific pipeline files (only template is tracked)
+*-pipeline.yaml
+*-content-plan.yaml
+*-blog-plan.yaml
+!pipeline.yaml
+!pipeline.example.yaml
+
+# ============================================================
+# Generated / fetched data
+# ============================================================
+gsc-data/
+*-results.json
+content_audit_results.json
+image_upload_results.json
+
+# ============================================================
 # OS
+# ============================================================
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Output drafts (optional — uncomment if you want to keep drafts private)
+# ============================================================
+# Output drafts (uncomment to keep drafts private)
+# ============================================================
 # output/*/draft.md
 # output/*/sanity-payload.json
